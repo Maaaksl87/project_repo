@@ -1,0 +1,60 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 250px;
+}
+
+/*? Питання: Андрію, на твою думку я правильно зробив обгортку цієї форми щоб відцентрувати її, чи можна було якось простіше зробити? */
+
+label {
+    margin-bottom: 3px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+button {
+    margin: 0 auto;
+    width: 200px;
+    height: 30px;
+
+}
+
+input:hover {
+    border-radius: 5px;
+    border-color: rgb(119, 77, 255);
+    background-color: rgba(45, 229, 242, 0.625);
+    transition: .3s;
+}
+
+input:focus {
+    border-radius: 5px;
+    border-color: rgb(119, 77, 255);
+    background-color: rgb(184, 108, 229);
+    color: antiquewhite;
+}
+
+button:hover {
+    border-radius: 3px;
+    width: 205px;
+    height: 35px;
+    background-color: chartreuse;
+    transition: .3s;
+}
+
+button:active {
+ border-radius: 5px;
+    width: 205px;
+    height: 35px;
+    background-color: rgb(101, 197, 6);
+}
