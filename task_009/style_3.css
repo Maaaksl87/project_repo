@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    justify-content: center;
+    
+}
+
+a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    color:rgb(255, 80, 203);
+    font-weight: 600;
+    font-size: large;
+}
