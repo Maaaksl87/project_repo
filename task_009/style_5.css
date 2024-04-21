@@ -1,0 +1,51 @@
+#wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#wrapper div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
+}
+
+.block_1 {
+    width: 50px;
+    height: 100px;
+    background-color: rgb(226, 43, 214);
+}   
+
+
+.block_2 {
+    height: 140px;
+    width: 130px;
+    background-color: chocolate;
+}
+
+.block_3 {
+    height: 80px;
+    width: 120px;
+    background-color: rgb(30, 210, 93);
+}
+.block_4 {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+div:first-child {
+    color: white;
+}
+
+div ~ div { /* комбінатор "нащадок", стосується всіх елементів на одному рівні вкладеності */
+    color: rgb(168, 36, 0);
+}
+
+.nxt:hover {
+    font-size: large;
+    font-weight: 700;
+    color: darkorange;
+}
+
