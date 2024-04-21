@@ -1,0 +1,29 @@
+#wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 200px;
+    margin: auto 10px;
+
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.blok2 {
+    background-color: darkorchid;
+    color: aquamarine;
+}
+
+div[class="other"] {
+    background-color: blueviolet;
+    font-weight: 600;
+    color: burlywood;
+}
