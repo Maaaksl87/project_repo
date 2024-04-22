@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Jost;
+    src: url(./Jost-VariableFont_wght.ttf);
+}
+
+h2 {
+    font-family: Jost, sans-serif;
+}
