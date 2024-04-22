@@ -8,9 +8,14 @@ body{
 }
 
 h2 {
-    font-family: Jost, sans-serif;  /* елемент з цим шрифтом */
+    font-family: sans-serif;  /* альтернативний шрифт */
 }
 
 p {
     font-family: "Pacifico";
+}
+
+h1 + h2, h2 + p {
+    font-weight: bold; /* Жирний альтернативний текст */
+    color: blueviolet;
 }
