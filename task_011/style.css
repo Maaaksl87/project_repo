@@ -6,3 +6,7 @@
 h2 {
     font-family: Jost, sans-serif;  /* елемент з цим шрифтом */
 }
+
+p {
+    font-family: "Pacifico";
+}
