@@ -30,7 +30,7 @@ h1 {
 }
 
 .second {
-    text-align: left;
+    text-align: center; /* для питання 4 */
     word-spacing: 3px;
     line-height: 30px;
 }
