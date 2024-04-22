@@ -1,0 +1,29 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: darkorange;
+}
+
+.span_1 {
+    text-decoration: underline;
+}
+
+.span_2 {
+    text-transform: uppercase;
+    text-decoration: line-through;
+}
+
+.one {
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.2rem;
+    text-indent: 20px; /* відступ першої строки від лівого краю */
+}
+
+.second {
+    text-align: left;
+    word-spacing: 3px;
+    line-height: 30px;
+}
