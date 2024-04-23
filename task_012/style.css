@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    width: 500px;
+    height: 200px;
+    font-size: 2rem;
+}
+
+.box_1 {
+    background-color: blue;
+}
+
+.box_2 {
+    background-color: rgba(0, 255, 47, 0.449);
+}
+
+.box_3 {
+    background-color: hwb(110 50% 50%)
+}
