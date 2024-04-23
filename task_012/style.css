@@ -21,8 +21,10 @@
 
 .box_2 {
     background-color: rgba(0, 255, 47, 0.449);
-    color: rgb(43, 88, 253)
+    color: rgb(43, 88, 253);
+    box-shadow: 10px 5px 5px red;
 }
+
 
 .box_3 {
     background-color: hwb(110 50% 50%);
