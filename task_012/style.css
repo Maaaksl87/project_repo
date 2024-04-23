@@ -1,6 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
+    
 }
 
 .box {
@@ -27,6 +28,12 @@
 
 
 .box_3 {
-    background-color: hwb(110 50% 50%);
-    color: hsl(101, 98%, 58%);
+    background-image: linear-gradient(
+        to bottom right,
+        #47b6e9,
+        #cee947,
+        rgb(139, 28, 117)
+      );
 }
+
+/* загалом звісно не дуже красиво вийшло, але суть завдання виконав. Там де потрібно рука творчої людини - буду виконувати з совістю) */
