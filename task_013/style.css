@@ -27,6 +27,7 @@ img {
     border-radius: 10px;
     
     box-shadow:  -5px -5px 40px rgba(248, 248, 248, 0.585);
+    transition: .3s;
 }
 
 figcaption {
@@ -39,4 +40,9 @@ figcaption {
     text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.74);
     background-image: linear-gradient(to bottom right, rgb(64, 20, 66), rgb(46, 9, 74)); ;
 
+}
+
+img:hover {
+    box-shadow: -5px -5px 90px rgba(248, 248, 248, 0.86); 
+    transition: .3s;
 }
