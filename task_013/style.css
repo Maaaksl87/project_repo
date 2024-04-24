@@ -4,6 +4,24 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(30, 98, 217), rgb(153, 0, 255));
+    background-image: linear-gradient(to bottom right, rgb(102, 13, 109), rgb(92, 12, 98), rgb(61, 17, 85), rgb(55, 5, 93));
     background-repeat: no-repeat;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    top: 90px;
+}
+
+img {
+    width: 800px;
+    height: 500px;
+
+    object-fit: cover;
+    border-radius: 10px;
+    
+    box-shadow:  -5px -5px 40px rgba(248, 248, 248, 0.585);
 }
