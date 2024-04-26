@@ -1,4 +1,8 @@
 body {
     background-image: url(./img/background.jpg);
-   background-size: 500px;
+    background-size: auto;
+}
+
+h1 {
+    color:rgb(42, 14, 200);
 }
