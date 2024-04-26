@@ -6,6 +6,7 @@ body {
     background-image: linear-gradient(to bottom right, rgb(57, 98, 209), rgb(138, 23, 187));
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 h1 {
