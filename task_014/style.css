@@ -14,17 +14,50 @@ h1 {
 }
 
 button {
+    position: relative;
+
     height: 50px;
     width: 100px;
+    margin-left: 50px;
     border-radius: 10px;
 
     background-color: darkorchid;
     color: aquamarine;
+    
+}
+
+button::before {
+    position: absolute;
+    content: url('https://todor.academy/assets/starWhite-b77f7767.svg');
+    
+    top: 10px;
+    right: 114px;
+    
+    transition: opacity 0.3s ease; 
+    opacity: 0;
+}
+
+button::after {
+    position: absolute;
+    content: url('https://todor.academy/assets/rocket-781c16d4.svg');
+
+    top: -20px;
+    right: -105px;
+    
+    transition: opacity 0.3s ease; 
+    opacity: 0;
+}
+
+button:hover::before,
+button:hover::after {
+    transition: opacity 0.3s ease; 
+    opacity: 1;
 }
 
 li {
     list-style: none;
 }
+
 
 .social {
     display: flex;
