@@ -1,10 +1,15 @@
+html {
+    height: 100vh;
+}
+
 body {
-    background-image: url(./img/background.jpg);
-    background-size: auto;
+    background-image: linear-gradient(to bottom right, rgb(57, 98, 209), rgb(138, 23, 187));
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
-    color: rgb(42, 14, 200);
+    color: rgb(20, 230, 241);
 }
 
 button {
