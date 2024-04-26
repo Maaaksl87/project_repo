@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-    color:rgb(42, 14, 200);
+    color: rgb(42, 14, 200);
 }
 
 button {
@@ -14,4 +14,35 @@ button {
 
     background-color: darkorchid;
     color: aquamarine;
+}
+
+li {
+    list-style: none;
+}
+
+.social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 500px;
+}
+
+.social-icon {
+    width: 50px;
+    height: 59px;
+
+    background-image: url(./img/social-icons.png);
+}
+
+.youtube-icon {
+    background-position: 209px 233px;
+}
+
+.pinterest-icon {
+    background-position: 103px 348px;
+}
+
+.google-icon {
+    background-position: 155px 290px;
 }
