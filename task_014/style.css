@@ -9,6 +9,17 @@ body {
     background-attachment: fixed;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100vh;
+
+    background-image: url(./img/23965b140dd0f0f633f83c9af9c3a35d.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 h1 {
     color: rgb(20, 230, 241);
 }
@@ -23,7 +34,7 @@ h1 {
     font-weight: 600;
 }
 
-h1:hover + .hidden_el {
+h1:hover+.hidden_el {
     display: block;
 }
 
@@ -98,4 +109,35 @@ li {
 
 .google-icon {
     background-position: 155px 290px;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 970px;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 750px;
+        background-size: cover;
+    }
+
+   
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: none;
+        background-attachment: fixed;
+    }
+    h1,
+    p,
+    ul {
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0 auto; 
+    }
 }
