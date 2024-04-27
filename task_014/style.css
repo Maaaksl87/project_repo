@@ -13,6 +13,20 @@ h1 {
     color: rgb(20, 230, 241);
 }
 
+.hidden_el {
+    display: none;
+    text-align: center;
+    align-items: center;
+    background-color: bisque;
+    height: 100px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h1:hover + .hidden_el {
+    display: block;
+}
+
 button {
     position: relative;
 
@@ -23,17 +37,17 @@ button {
 
     background-color: darkorchid;
     color: aquamarine;
-    
+
 }
 
 button::before {
     position: absolute;
     content: url('https://todor.academy/assets/starWhite-b77f7767.svg');
-    
+
     top: 10px;
     right: 114px;
-    
-    transition: opacity 0.3s ease; 
+
+    transition: opacity 0.3s ease;
     opacity: 0;
 }
 
@@ -43,14 +57,14 @@ button::after {
 
     top: -20px;
     right: -105px;
-    
-    transition: opacity 0.3s ease; 
+
+    transition: opacity 0.3s ease;
     opacity: 0;
 }
 
 button:hover::before,
 button:hover::after {
-    transition: opacity 0.3s ease; 
+    transition: opacity 0.3s ease;
     opacity: 1;
 }
 
