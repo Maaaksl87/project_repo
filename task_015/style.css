@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,16 +10,24 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: 200px;
   width: 400px;
   border: red solid 2px;
   font-size: 24px;
   background: linear-gradient(130deg, blue, red);
+  transition: all 0.3s ease-in-out 0.2s;
+}
 
-  transition: width 0.3s ease-in-out 0.2s;
+span {
+  transition: transform 0.3s ease-in-out 0.2s;
 }
 
 div:hover {
   width: 200px;
+  border: none;
+  transform: rotate(90deg);
+}
+
+span:hover {
+  transform: rotate(-90deg);
 }
