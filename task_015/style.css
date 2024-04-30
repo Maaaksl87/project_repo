@@ -8,13 +8,19 @@ body {
 }
 
 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 200px;
   width: 400px;
   border: red solid 2px;
   font-size: 24px;
   background: linear-gradient(130deg, blue, red);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: width 0.3s ease-in-out 0.2s;
+}
+
+div:hover {
+  width: 200px;
 }
