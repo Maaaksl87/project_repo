@@ -30,6 +30,9 @@ body {
   border: 2px solid black;
 }
 
+.one {
+  transform: rotate(-45deg);
+}
 .second {
   transform: scale(2);
 }
