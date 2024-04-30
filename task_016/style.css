@@ -36,3 +36,7 @@ body {
 .second {
   transform: scale(2);
 }
+
+.third {
+  transform: translate(100px, 50px);
+}
