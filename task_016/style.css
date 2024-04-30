@@ -26,6 +26,10 @@ body {
     rgb(200, 0, 255),
     rgb(0, 106, 255)
   );
-  margin-right: 20px;
+  margin-right: 40px;
   border: 2px solid black;
+}
+
+.second {
+  transform: scale(2);
 }
