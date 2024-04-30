@@ -1,143 +1,143 @@
 html {
-    height: 100vh;
+  height: 100vh;
 }
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(57, 98, 209), rgb(138, 23, 187));
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(57, 98, 209),
+    rgb(138, 23, 187)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100vh;
 
-    background-image: url(./img/23965b140dd0f0f633f83c9af9c3a35d.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(./img/23965b140dd0f0f633f83c9af9c3a35d.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
-    color: rgb(20, 230, 241);
+  color: rgb(20, 230, 241);
 }
 
 .hidden_el {
-    display: none;
-    text-align: center;
-    align-items: center;
-    background-color: bisque;
-    height: 100px;
-    font-size: 24px;
-    font-weight: 600;
+  display: none;
+  text-align: center;
+  align-items: center;
+  background-color: bisque;
+  height: 100px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-h1:hover+.hidden_el {
-    display: block;
+h1:hover + .hidden_el {
+  display: block;
 }
 
 button {
-    position: relative;
+  position: relative;
 
-    height: 50px;
-    width: 100px;
-    margin-left: 50px;
-    border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  margin-left: 50px;
+  border-radius: 10px;
 
-    background-color: darkorchid;
-    color: aquamarine;
-
+  background-color: darkorchid;
+  color: aquamarine;
 }
 
 button::before {
-    position: absolute;
-    content: url('https://todor.academy/assets/starWhite-b77f7767.svg');
+  position: absolute;
+  content: url("https://todor.academy/assets/starWhite-b77f7767.svg");
 
-    top: 10px;
-    right: 114px;
+  top: 10px;
+  right: 114px;
 
-    transition: opacity 0.3s ease;
-    opacity: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 button::after {
-    position: absolute;
-    content: url('https://todor.academy/assets/rocket-781c16d4.svg');
+  position: absolute;
+  content: url("https://todor.academy/assets/rocket-781c16d4.svg");
 
-    top: -20px;
-    right: -105px;
+  top: -20px;
+  right: -105px;
 
-    transition: opacity 0.3s ease;
-    opacity: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 button:hover::before,
 button:hover::after {
-    transition: opacity 0.3s ease;
-    opacity: 1;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
-
 .social {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    width: 500px;
+  width: 500px;
 }
 
 .social-icon {
-    width: 50px;
-    height: 59px;
+  width: 50px;
+  height: 59px;
 
-    background-image: url(./img/social-icons.png);
+  background-image: url(./img/social-icons.png);
 }
 
 .youtube-icon {
-    background-position: 209px 233px;
+  background-position: 209px 233px;
 }
 
 .pinterest-icon {
-    background-position: 103px 348px;
+  background-position: 103px 348px;
 }
 
 .google-icon {
-    background-position: 155px 290px;
+  background-position: 155px 290px;
 }
 
 @media (max-width: 1200px) {
-    .container {
-        max-width: 970px;
-        background-size: cover;
-        background-attachment: fixed;
-    }
+  .container {
+    max-width: 970px;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 }
 
 @media (max-width: 992px) {
-    .container {
-        max-width: 750px;
-        background-size: cover;
-    }
-
-   
+  .container {
+    max-width: 750px;
+    background-size: cover;
+  }
 }
 
 @media (max-width: 767px) {
-    .container {
-        max-width: none;
-        background-attachment: fixed;
-    }
-    h1,
-    p,
-    ul {
-        width: 100%; 
-        max-width: 100%; 
-        margin: 0 auto; 
-    }
+  .container {
+    max-width: none;
+    background-attachment: fixed;
+  }
+  h1,
+  p,
+  ul {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
