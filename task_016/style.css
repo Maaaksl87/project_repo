@@ -38,5 +38,5 @@ body {
 }
 
 .third {
-  transform: translate(100px, 50px);
+  transform: translate(100px, 50px) skew(20deg, 30deg);
 }
