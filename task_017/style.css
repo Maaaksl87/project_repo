@@ -24,8 +24,8 @@ body {
     rgb(211, 48, 244)
   );
 
-  animation-name: text_animation, rotation;
-  animation-duration: 3s, 5s;
+  animation-name: text_animation, size;
+  animation-duration: 3s, 4s;
 }
 
 @keyframes text_animation {
@@ -46,7 +46,7 @@ body {
   }
 }
 
-/* @keyframes block_animation {
+/* @keyframes block_animation {      /завдання 2/
   0% {
     opacity: 1;
   }
@@ -55,11 +55,22 @@ body {
   }
 } */
 
-@keyframes rotation {
+/* @keyframes rotation {            /завдання 3/
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+} */
+
+@keyframes size {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
   }
 }
