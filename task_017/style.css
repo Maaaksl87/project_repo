@@ -1,0 +1,47 @@
+html,
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 200px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  height: 150px;
+  width: 300px;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(25, 93, 220),
+    rgb(211, 48, 244)
+  );
+
+  animation-name: text_animation;
+  animation-duration: 3s;
+}
+
+@keyframes text_animation {
+  0% {
+    color: rgb(18, 196, 89);
+  }
+  30% {
+    color: rgb(211, 218, 21);
+  }
+  60% {
+    color: rgb(43, 204, 38);
+  }
+  90% {
+    color: rgba(29, 211, 156, 0.845);
+  }
+  100% {
+    color: rgb(41, 74, 207);
+  }
+}
