@@ -24,8 +24,8 @@ body {
     rgb(211, 48, 244)
   );
 
-  animation-name: text_animation, block_animation;
-  animation-duration: 3s, 2s;
+  animation-name: text_animation, rotation;
+  animation-duration: 3s, 5s;
 }
 
 @keyframes text_animation {
@@ -46,11 +46,20 @@ body {
   }
 }
 
-@keyframes block_animation {
+/* @keyframes block_animation {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+  }
+} */
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
