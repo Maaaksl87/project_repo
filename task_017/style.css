@@ -24,8 +24,8 @@ body {
     rgb(211, 48, 244)
   );
 
-  animation-name: text_animation;
-  animation-duration: 3s;
+  animation-name: text_animation, block_animation;
+  animation-duration: 3s, 2s;
 }
 
 @keyframes text_animation {
@@ -43,5 +43,14 @@ body {
   }
   100% {
     color: rgb(41, 74, 207);
+  }
+}
+
+@keyframes block_animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
