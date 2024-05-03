@@ -31,6 +31,10 @@ img {
   border-radius: 20px;
 }
 
+.centre {
+  backdrop-filter: blur(5px) sepia(30%) brightness(1.25);
+}
+
 .centre img {
   width: 50%;
   display: block;
