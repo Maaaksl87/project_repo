@@ -25,13 +25,23 @@ section {
 .block {
   margin: 0 20px;
   max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.block:hover {
+  transform: scale(1.05);
 }
 
 img {
   border-radius: 20px;
 }
 
-.centre {
+section:nth-child(3) {
+  backdrop-filter: blur(0) sepia(0%) brightness(1);
+  transition: backdrop-filter 0.3s ease;
+}
+
+.centre:hover {
   backdrop-filter: blur(5px) sepia(30%) brightness(1.25);
 }
 
@@ -42,5 +52,10 @@ img {
 }
 
 .filter {
+  filter: opacity(1) blur(0) grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.filter:hover {
   filter: opacity(0.9) blur(2px) grayscale(50%);
 }
