@@ -35,7 +35,9 @@ section {
 }
 
 .greenyellow {
-  background-color: greenyellow;
+  background-image: url("https://i.pinimg.com/736x/b8/85/c8/b885c81aff2c7879341aaeec40e39935.jpg");
+  height: 300px;
+  background-size: contain;
 }
 
 .yellow {
