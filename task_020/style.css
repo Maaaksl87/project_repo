@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 100vh;
+  height: 500vh;
 
   background-image: linear-gradient(
     to bottom right,
@@ -30,7 +30,28 @@ body {
 .child {
   width: 150px;
   height: 100px;
-
+  margin: 0 10px;
   background-color: #ff229d;
   border-radius: 10px;
+}
+
+.no-statick {
+  position: relative;
+}
+
+.relative {
+  position: relative; /*дозволяє зміщувати елемент відносно його звичайного місця(відносно початкового положення).*/
+  top: -50px;
+  left: -50px;
+}
+
+.absolute {
+  position: absolute; /*дозволяє абсолютно позиціювати елемент відносно його найближчого предка з нестатичним позиціюванням*/
+  top: 0;
+  right: -5px;
+}
+
+.sticky {
+  position: sticky; /*поводитися як зафіксований, поки він попадає в зону видимості*/
+  top: 10px;
 }
