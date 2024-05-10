@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 0, 0, 0.567),
+    rgba(0, 0, 255, 0.781)
+  );
+}
+
+.box {
+  width: 600px;
+  height: 400px;
+  border-radius: 10px;
+  background-image: linear-gradient(to top right, #0b9c03e2, #ff229cae);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.child {
+  width: 150px;
+  height: 100px;
+
+  background-color: #ff229d;
+  border-radius: 10px;
+}
