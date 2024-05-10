@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 500vh;
+  height: 100vh;
 
   background-image: linear-gradient(
     to bottom right,
@@ -17,20 +17,24 @@ body {
 }
 
 .box {
-  width: 600px;
+  width: 400px;
   height: 400px;
   border-radius: 10px;
   background-image: linear-gradient(to top right, #0b9c03e2, #ff229cae);
 
   display: flex;
-  justify-content: space-around;
   align-items: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .child {
   width: 150px;
   height: 100px;
-  margin: 0 10px;
+
   background-color: #ff229d;
   border-radius: 10px;
 }
@@ -40,9 +44,11 @@ body {
 }
 
 .relative {
-  position: relative; /*дозволяє зміщувати елемент відносно його звичайного місця(відносно початкового положення).*/
-  top: -50px;
-  left: -50px;
+  /* position: relative; дозволяє зміщувати елемент відносно його звичайного місця(відносно початкового положення). */
+  /* top: -50px;
+  left: -50px; */
+  flex: 0.8;
+  margin: 20px;
 }
 
 .absolute {
