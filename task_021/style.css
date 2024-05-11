@@ -1,10 +1,12 @@
+html,
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 200vh;
+  height: 100vh;
 }
-.container {
+
+/* .container {
   position: relative;
   height: 100vh;
   background-color: aquamarine;
@@ -39,4 +41,34 @@ body {
 .sticky {
   position: sticky;
   top: 0;
+} */
+
+.container {
+  background-color: darkcyan;
+}
+
+.float {
+  border: 3px solid black;
+  margin: 2px 0;
+}
+
+.img-block {
+  background-image: url("http://placekitten.com/200/200");
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+p {
+  text-align: justify;
+  margin-right: 10px;
 }
