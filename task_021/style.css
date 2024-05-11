@@ -72,3 +72,9 @@ p {
   text-align: justify;
   margin-right: 10px;
 }
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
