@@ -30,10 +30,6 @@ body {
 }
 
 .box {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
   background-image: url("./img/images-removebg-preview.png");
   background-color: rgba(137, 43, 226, 0.649);
   background-size: 330px;
@@ -58,4 +54,10 @@ body {
 
 .box:nth-child(1) {
   flex-grow: 1; /* я щось не подумав що буде таке завдання, і в мене картинка в середені box полетить, але і так впринципі норм:)*/
+}
+
+@media (max-width: 600px) {
+  .section {
+    flex-direction: column;
+  }
 }
