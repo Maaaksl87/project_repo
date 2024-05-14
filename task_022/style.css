@@ -27,6 +27,7 @@ body {
   background-color: rgba(36, 213, 237, 0.522);
 
   border-radius: 20px;
+  margin-right: 20px;
 }
 
 .box {
@@ -60,4 +61,26 @@ body {
   .section {
     flex-direction: column;
   }
+}
+
+.level-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 700px;
+  height: 500px;
+  background-color: rgba(36, 213, 237, 0.522);
+
+  border-radius: 20px;
+}
+
+.level-2-child {
+  background-image: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
 }
