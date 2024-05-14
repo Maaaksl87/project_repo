@@ -89,3 +89,7 @@ body {
 .level-2-child:nth-child(2) {
   flex-basis: 200px;
 }
+
+box:nth-child(3) {
+  flex-shrink: 0;
+}
