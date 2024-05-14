@@ -1,0 +1,57 @@
+body,
+html {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(194, 14, 222, 0.652),
+    rgba(34, 34, 238, 0.696)
+  );
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 700px;
+  height: 500px;
+  background-color: rgba(36, 213, 237, 0.522);
+
+  border-radius: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-image: url("./img/images-removebg-preview.png");
+  background-color: rgba(137, 43, 226, 0.649);
+  background-size: 330px;
+  background-repeat: no-repeat;
+
+  width: 118px;
+  height: 138px;
+
+  border-radius: 10px;
+  box-shadow: 2px 3px 8px rgba(13, 77, 195, 0.988);
+}
+
+.one {
+  background-position: 6px -22px;
+}
+.two {
+  background-position: -106px -22px;
+}
+.three {
+  background-position: -217px -22px;
+}
