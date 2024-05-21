@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+}
+
+.nav {
+  background-color: #ff6500;
+}
+.main {
+  background-color: #c40c0c;
+}
+.aside {
+  background-color: #ff8a08;
+}
