@@ -2,18 +2,41 @@ html,
 body {
   height: 100vh;
   margin: 0;
+  font-size: 1.5rem;
+  font-family: sans-serif;
 }
 
-.container {
+.grid-container {
+  height: 100vh;
   display: grid;
+  grid-template-rows: 0.5fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "aside nav nav"
+    "aside main main"
+    "aside main main";
+  grid-gap: 10px;
 }
 
 .nav {
   background-color: #ff6500;
+  grid-area: nav;
 }
 .main {
   background-color: #c40c0c;
+  grid-area: main;
 }
 .aside {
   background-color: #ff8a08;
+  grid-area: aside;
+}
+
+@media (max-width: 720px) {
+  .grid-container {
+    grid-template-areas:
+      "nav nav nav"
+      "aside aside aside"
+      "main main main";
+    grid-template-rows: 0.2fr 0.4fr 1fr;
+  }
 }
