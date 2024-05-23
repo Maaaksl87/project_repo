@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+}
+
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "ad nav nav"
+    "ad main main"
+    "ad main main";
+  grid-gap: 10px;
+}
+
+.block {
+  border-radius: 10px;
+}
+
+.nav-section-content {
+  background-color: #874ccc;
+  grid-area: nav;
+}
+
+.main-section-content {
+  background-color: #4043e4e3;
+  grid-area: main;
+}
+
+.ad-section-content {
+  background-color: #c65bcf;
+  grid-area: ad;
+}
