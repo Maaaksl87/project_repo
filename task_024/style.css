@@ -156,3 +156,20 @@ h2 {
     text-overflow: ellipsis;
   }
 }
+
+@media (orientation: landscape) {
+  html {
+    color-scheme: dark;
+  }
+
+  .nav-section-content {
+    background-color: #441e6f;
+  }
+
+  .main-section-content {
+    background-color: #242692e3;
+  }
+  .ad-section-content {
+    background-color: #7d3584;
+  }
+}
