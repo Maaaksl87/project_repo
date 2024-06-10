@@ -28,15 +28,15 @@ body .container .box {
   max-width: 500px;
 }
 body .container .green {
-  background-color: #ff3ea5;
+  background-color: green;
   height: 30px;
 }
 body .container .greenyellow {
+  background-color: greenyellow;
   height: 120px;
-  background-color: #ff7ed4;
 }
 body .container .yellow {
-  background-color: #ffb5da;
+  background-color: yellow;
   height: 50px;
 }
 

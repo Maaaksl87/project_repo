@@ -1,12 +1,11 @@
 $background: linear-gradient(to right, #ff00cc, #333399);
 $primary-color: #6420aa;
-$secondary-color: #ff3ea5;
-$third-color: #ff7ed4;
-$other-color: #ffb5da;
-
-$h-30: 30px;
-$h-120: 120px;
-$h-50: 50px;
+$heights: (
+  green: 30px,
+  greenyellow: 120px,
+  yellow: 50px,
+);
+$colors: (green, greenyellow, yellow);
 
 @mixin flex-container(
   $display: flex,
@@ -47,19 +46,21 @@ body {
       max-width: 500px;
     }
 
-    .green {
-      background-color: $secondary-color;
-      height: $h-30;
-    }
-
-    .greenyellow {
-      height: $h-120;
-      background-color: $third-color;
-    }
-
-    .yellow {
-      background-color: $other-color;
-      height: $h-50;
+    @for $i from 1 through length($heights) {
+      // від першого до кінця довжини списку
+      $name: nth(
+        map-keys($heights),
+        $i
+      ); //витягує ключ на $i-тій позиції зі списку
+      $height: nth(
+        map-values($heights),
+        $i
+      ); // отримуємо значення на $i-тій позиції зі списку
+      $color: nth($colors, $i); // дає колір длч поточної ітерації
+      .#{$name} {
+        background-color: $color;
+        height: $height;
+      }
     }
   }
 }
