@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: linear-gradient(to right, #ff00cc, #333399);
+}
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1500px;
+  height: 350px;
+  background-color: #6420aa;
+  border-radius: 20px;
+}
+body .container .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  margin: 0 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  min-width: 100px;
+  max-width: 500px;
+}
+body .container .green {
+  background-color: #ff3ea5;
+  height: 30px;
+}
+body .container .greenyellow {
+  height: 120px;
+  background-color: #ff7ed4;
+}
+body .container .yellow {
+  background-color: #ffb5da;
+  height: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

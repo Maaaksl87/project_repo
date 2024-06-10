@@ -1,0 +1,65 @@
+$background: linear-gradient(to right, #ff00cc, #333399);
+$primary-color: #6420aa;
+$secondary-color: #ff3ea5;
+$third-color: #ff7ed4;
+$other-color: #ffb5da;
+
+$h-30: 30px;
+$h-120: 120px;
+$h-50: 50px;
+
+@mixin flex-container(
+  $display: flex,
+  $just-content: center,
+  $align-items: center
+) {
+  display: $display;
+  justify-content: $just-content;
+  align-items: $align-items;
+}
+
+body {
+  @include flex-container();
+
+  height: 100%;
+  background-image: $background;
+
+  .container {
+    @include flex-container();
+
+    width: 1500px;
+    height: 350px;
+    background-color: $primary-color;
+    border-radius: 20px;
+
+    .box {
+      @include flex-container();
+
+      width: 150px;
+      height: 100px;
+
+      margin: 0 15px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid black;
+
+      min-width: 100px;
+      max-width: 500px;
+    }
+
+    .green {
+      background-color: $secondary-color;
+      height: $h-30;
+    }
+
+    .greenyellow {
+      height: $h-120;
+      background-color: $third-color;
+    }
+
+    .yellow {
+      background-color: $other-color;
+      height: $h-50;
+    }
+  }
+}
