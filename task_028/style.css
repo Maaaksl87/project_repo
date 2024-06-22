@@ -1,0 +1,16 @@
+body,
+html {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to right, #16222a, #3a6073);
+}
+
+.block {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
