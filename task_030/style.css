@@ -35,10 +35,31 @@ body {
   align-items: center;
 }
 
+.jpg_m {
+  width: 500px;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
 .jpg,
 .png,
 .svg,
 .webp {
   width: 400px;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .jpg_m {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .jpg_m {
+    width: 150px;
+    height: auto;
+  }
 }
