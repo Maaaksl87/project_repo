@@ -12,6 +12,23 @@ body {
   padding: 20px;
 }
 
+.container_size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c2fffe;
+}
+
+.container_size_img {
+  width: 500px;
+}
+
+.svg_m {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
 .image-wrapper {
   display: flex;
   flex-direction: column;
