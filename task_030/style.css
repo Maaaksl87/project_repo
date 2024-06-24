@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: #fff9c2;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jpg,
+.png,
+.svg,
+.webp {
+  width: 400px;
+  height: auto;
+}
