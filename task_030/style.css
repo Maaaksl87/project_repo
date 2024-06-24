@@ -63,3 +63,12 @@ body {
     height: auto;
   }
 }
+
+.container_background {
+  width: auto;
+  height: 300px;
+  overflow: hidden;
+  background-image: url("./img/mohammad-rahmani-oXlXu2qukGE-unsplash.jpg");
+  background-position: center center;
+  background-size: cover;
+}
