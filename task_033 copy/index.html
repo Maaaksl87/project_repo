@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Тег picture | 031</title>
+  </head>
+  <body>
+    <div class="container">
+      <picture>
+        <source
+          srcset="./img/1.jpg"
+          media="(max-width: 500px)"
+          type="image/jpeg"
+        />
+        <source
+          srcset="./img/snapedit_1719394848301.jpeg"
+          media="(max-width: 1000px)"
+          type="image/jpeg"
+        />
+        <source
+          srcset="./img/upd.png"
+          media="(min-width: 1001px)"
+          type="image/png"
+        />
+        <img src="./img/snapedit_1719394848301.jpeg" alt="first img" />
+      </picture>
+    </div>
+  </body>
+</html>
