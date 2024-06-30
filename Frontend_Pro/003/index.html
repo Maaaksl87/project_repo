@@ -10,7 +10,6 @@
       //   let shaurma = "лаваш, м'ясо, капуста, помідорки, огірочки";
       //   let vareniki = "тісто, картопля, цибуля, капуста";
       //   let meat = true;
-
       //   if (meat) {
       //     console.log(shaurma);
       //   } else {
@@ -19,28 +18,54 @@
 
       //   let result = meat ? console.log(shaurma) : console.log(vareniki);
 
-      let code = "BX";
+      //   let code = "BX";
+      //   switch (code) {
+      //     case "ВТ":
+      //       console.log("Херсонська область");
+      //       break;
+      //     case "BK":
+      //       console.log("Рівненська область");
+      //       break;
+      //     case "BM":
+      //       console.log("Сумська область");
+      //       break;
+      //     case "BX":
+      //       console.log("Хмельницька область");
+      //       break;
+      //     case "AB":
+      //       console.log("Вінницька область");
+      //       break;
+      //     default:
+      //       console.log("Код не зареєстрований!");
+      //       break;
+      //   }
 
-      switch (code) {
-        case "ВТ":
-          console.log("Херсонська область");
+      let login = "";
+      let message =
+        login == "Співробітник"
+          ? "Привіт"
+          : login == "Директор"
+          ? "Привіт"
+          : login == ""
+          ? "Немає логіна"
+          : "";
+
+      //    За допомогою switch:
+      switch (login) {
+        case "Співробітник":
+        case "Директор":
+          message = "Привіт";
           break;
-        case "BK":
-          console.log("Рівненська область");
+        case "":
+          message = "Немає логіна";
           break;
-        case "BM":
-          console.log("Сумська область");
-          break;
-        case "BX":
-          console.log("Хмельницька область");
-          break;
-        case "AB":
-          console.log("Вінницька область");
-          break;
+
         default:
-          console.log("Код не зареєстрований!");
+          message = "";
           break;
       }
+
+      console.log(message);
     </script>
   </body>
 </html>
