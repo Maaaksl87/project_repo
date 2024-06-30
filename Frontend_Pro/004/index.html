@@ -7,12 +7,21 @@
   </head>
   <body>
     <script>
-      for (let i = 1; i <= 5; i++) {
-        for (let j = 1; j <= 5; j++) {
-          console.log(`${i} * ${j} = ${i * j}`);
-        }
-        console.log(``);
+      //   for (let i = 1; i <= 5; i++) {
+      //     for (let j = 1; j <= 5; j++) {
+      //       console.log(`${i} * ${j} = ${i * j}`);
+      //     }
+      //     console.log(``);
+      //   }
+
+      const numbers = [23, 535, 23, 123, 18, 174, 304];
+
+      let sum = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
       }
+      console.log(sum);
     </script>
   </body>
 </html>
