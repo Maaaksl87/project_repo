@@ -23,4 +23,13 @@ console.log(
     null === 0, //false
 );
 
+const person = {
+    name,
+    age,
+    isStudent,
+    height,
+}
+
+console.log(person);
+
 
