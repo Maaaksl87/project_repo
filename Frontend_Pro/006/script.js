@@ -26,3 +26,7 @@ console.log(numFloat);
 let isLoggedOut = false;
 let loggedInString = String(isLoggedOut);
 console.log(typeof loggedInString, loggedInString);
+
+const ageString = "25";
+const yearsToAdd = 10;
+let futureAge = console.log(+ageString + yearsToAdd); //35
