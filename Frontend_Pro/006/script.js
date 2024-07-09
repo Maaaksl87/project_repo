@@ -13,3 +13,11 @@ console.log(!!"false" == !!"true"); //true !! - пертворення на бу
 console.log("4" - 3); //1
 console.log("4px" - 3); //NaN
 console.log(0 || "0" && 1); //1
+
+
+let numString = "42";
+let numInt = parseInt(numString);
+let numFloat = parseFloat(numString);
+console.log(numString);
+console.log(numInt);
+console.log(numFloat);
