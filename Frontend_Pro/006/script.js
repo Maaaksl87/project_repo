@@ -34,3 +34,8 @@ let futureAge = console.log(+ageString + yearsToAdd); //35
 
 let inputValue = "true";
 let isTrue = console.log(!!inputValue, typeof !!inputValue); // true boolean
+
+// Завдання 6 "Комбіноване приведення типів"
+console.log(typeof inputValue); //string (взято з минулого завдання)
+console.log(Number(inputValue)) //NaN
+//до булевого типу - в минулому завданні :)
