@@ -30,3 +30,7 @@ console.log(typeof loggedInString, loggedInString);
 const ageString = "25";
 const yearsToAdd = 10;
 let futureAge = console.log(+ageString + yearsToAdd); //35
+
+
+let inputValue = "true";
+let isTrue = console.log(!!inputValue, typeof !!inputValue);;
