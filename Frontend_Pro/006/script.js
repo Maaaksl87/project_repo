@@ -21,3 +21,8 @@ let numFloat = parseFloat(numString);
 console.log(numString);
 console.log(numInt);
 console.log(numFloat);
+
+
+let isLoggedOut = false;
+let loggedInString = String(isLoggedOut);
+console.log(typeof loggedInString, loggedInString);
