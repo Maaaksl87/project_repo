@@ -33,4 +33,4 @@ let futureAge = console.log(+ageString + yearsToAdd); //35
 
 
 let inputValue = "true";
-let isTrue = console.log(!!inputValue, typeof !!inputValue);;
+let isTrue = console.log(!!inputValue, typeof !!inputValue); // true boolean
