@@ -24,3 +24,22 @@ console.log(filterColor);
 // також за допомогою splice можна, але якщо ми знаєм на який індекс займає наш елемент
 
 
+
+//завдання 3
+let fruits = ["яблуко", "банан", "апельсин", "груша", "ківі"];
+fruits.sort();
+console.log(fruits);
+
+let str = fruits.join(", ")
+console.log(str);
+
+let filterArr = fruits.filter((n) => n.length > 5);
+console.log(filterArr);
+
+let mapArr = fruits.map(el => el.toUpperCase())
+console.log(mapArr);
+
+let reduceArr = fruits.reduce((accumulator, currentValue) => {
+    return accumulator + "-" + currentValue;
+});
+console.log(reduceArr);
