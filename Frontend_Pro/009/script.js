@@ -23,3 +23,15 @@ let square = function (num) {
 console.log(square(2));
 console.log(square(5));
 console.log(square(9));
+
+
+
+
+let check = (num) => {
+    typeof num === "number" ? console.log("Аргумент є числом") : console.log("Аргумент не є числом");
+}
+
+check(12);
+check("sflsf");
+check(Boolean);
+check({});
