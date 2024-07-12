@@ -14,4 +14,12 @@ function sendMessage(message, callback) {
     callback(message);
 }
 
-sendMessage("hello, world?", printMessage); 
+sendMessage("hello, world?", printMessage);
+
+let square = function (num) {
+    return Math.pow(num, 2);
+}
+
+console.log(square(2));
+console.log(square(5));
+console.log(square(9));
