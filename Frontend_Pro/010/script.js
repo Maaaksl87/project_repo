@@ -1,8 +1,6 @@
 function first(callback) {
     console.log("okay");
     callback();
-
-
 };
 
 function whatIsCallback() {
@@ -15,3 +13,15 @@ function whatIsCallback() {
 };
 
 first(whatIsCallback);
+
+
+function sum(callback, x, y) {
+    let result = x + y;
+    callback(result);
+}
+
+function display(result) {
+    console.log(result);
+}
+
+sum(display, 5, 6)
