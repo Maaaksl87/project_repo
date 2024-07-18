@@ -41,3 +41,16 @@ const logger = createLogger();
 
 console.log(logger('ssss'));
 console.log(logger('test'));
+
+
+function generateUniqueId() {
+    let id = 0;
+
+    return function () {
+        id++;
+        return "id_#" + id;
+    }
+}
+const genId = generateUniqueId();
+
+console.log(genId());
