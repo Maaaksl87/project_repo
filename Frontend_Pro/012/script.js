@@ -54,3 +54,16 @@ function generateUniqueId() {
 const genId = generateUniqueId();
 
 console.log(genId());
+
+
+function multiplyBy(num) {
+
+    return function (arg) {
+        return num * arg;
+    };
+};
+
+const multy = multiplyBy(3);
+
+console.log(multy(5));
+console.log(multy(8));
