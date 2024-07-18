@@ -25,3 +25,19 @@ console.log(makecount());
 console.log(makecount());
 console.log(makecount());
 console.log(makecount());
+
+
+
+function createLogger() {
+    let log = "";
+
+    return function (str2) {
+        log += (log ? ' ' : '') + str2;
+        return log;
+    };
+}
+
+const logger = createLogger();
+
+console.log(logger('ssss'));
+console.log(logger('test'));
