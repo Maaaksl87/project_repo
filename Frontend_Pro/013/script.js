@@ -26,3 +26,12 @@ function getUserInfo() {
 const user = { name: 'John', age: 30 };
 updateUserInfo(user, 'Alice');
 console.log(getUserInfo(user));
+
+console.log("Завдання 4");
+
+function calculateAverage(arr) {
+    return arr.length === 0 ? 0 : arr.reduce((a, b) => a + b) / arr.length;
+};
+
+const numbers2 = [1, 2, 3, 4, 5];
+console.log(calculateAverage(numbers2));
