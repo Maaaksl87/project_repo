@@ -7,4 +7,21 @@ function calculateDiscount(dis) {
     };
     sum(100, 0);
 };
-calculateDiscount(10)
+calculateDiscount(10);
+
+
+function createCounter() {
+    let counter = 0;
+
+    return function () {
+        counter += 1;
+        return counter;
+    }
+}
+
+const makecount = createCounter();
+
+console.log(makecount());
+console.log(makecount());
+console.log(makecount());
+console.log(makecount());
