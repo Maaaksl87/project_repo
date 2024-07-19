@@ -27,3 +27,13 @@ const replacement = "термін";
 
 const output = replaceWords(input, target, replacement);
 console.log(output);
+
+
+
+function div(x) {
+    return function (y) {
+        return y === 0 ? "Ділення на нуль не можливе" : x / y;
+    };
+}
+
+console.log(div(10)(5)); 
