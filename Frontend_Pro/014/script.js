@@ -36,4 +36,22 @@ function div(x) {
     };
 }
 
-console.log(div(10)(5)); 
+console.log(div(10)(5));
+
+
+function accumulator(initialValue = 0) {
+    let sum = initialValue;
+
+    function add(value = 0) {
+        sum += value;
+        return sum;
+    }
+
+    return add;
+}
+
+
+const acc1 = accumulator(10);
+console.log(acc1(5));
+console.log(acc1(3));
+console.log(acc1(2));
