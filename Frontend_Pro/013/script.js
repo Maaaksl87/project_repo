@@ -20,7 +20,7 @@ function updateUserInfo(key, val) {
 }
 
 function getUserInfo() {
-    return user.name
+    return user;          // виправив, тепер getUserInfo повертає оновлений об'єкт, а не і'мя
 }
 
 const user = { name: 'John', age: 30 };
