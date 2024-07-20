@@ -1,13 +1,14 @@
 function calculateDiscount(dis) {
 
-    function sum(num1, num2) {
-        var summurize = num1 + num2;
-        var result = summurize / 100 * dis;
-        console.log(`${dis}% від ${summurize} = ${result}`);
+    return function (purchaseAmount) {
+        var discountAmount = purchaseAmount * (dis / 100);
+        console.log(`${dis}% від ${purchaseAmount} = ${discountAmount}`);
+        return discountAmount;
     };
-    sum(100, 0);
-};
-calculateDiscount(10);
+}
+
+var discount = calculateDiscount(10);
+discount(100);
 
 
 function createCounter() {
