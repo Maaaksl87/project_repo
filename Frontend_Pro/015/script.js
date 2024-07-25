@@ -46,3 +46,15 @@ let circle = {
 console.log(circle.area); //1962.5
 circle.radius = 10;
 console.log(circle.area); //314
+
+
+//ЗАВДАННЯ 4
+let car = {
+    brand: "Audi",
+    model: "A4",
+    description() {
+        return (`Машина марки ${this.brand} ${this.model}`)
+    },
+}
+
+console.log(car.description());
