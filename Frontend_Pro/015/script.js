@@ -35,3 +35,14 @@ let calculator = {
 }
 
 console.log(calculator.add(5, 2));
+
+//ЗАВДАННЯ 3
+let circle = {
+    pi: 3.14,
+    _radius: 25,
+    get area() { return (this._radius > 0 ? this.pi * Math.pow(this._radius, 2) : "Радіус повинен бути додатнім") },
+    set radius(value) { this._radius = value },
+}
+console.log(circle.area); //1962.5
+circle.radius = 10;
+console.log(circle.area); //314
