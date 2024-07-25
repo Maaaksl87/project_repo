@@ -58,3 +58,18 @@ let car = {
 }
 
 console.log(car.description());
+
+
+//ЗАВДАННЯ 5
+
+let product = {
+    name: "apple",
+    price: 20,
+    applyDiscount(discount) {
+        console.log(`Знижка: ${discount}% на продукт ${this.name} з початковою ціно ${this.price}`);
+        let discountAmount = this.price * (discount / 100);
+        this.price = this.price - discountAmount;
+        console.log(`Ціна після знижки: ${this.price}`);
+    },
+}
+product.applyDiscount(15);
