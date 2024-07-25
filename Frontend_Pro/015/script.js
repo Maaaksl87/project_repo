@@ -73,3 +73,37 @@ let product = {
     },
 }
 product.applyDiscount(15);
+
+
+//ДОДАТКОВЕ ЗАВДАННЯ 
+let userProfile = {
+    name: "James",
+    email: "james@gmail.com",
+    age: 25,
+    _parol: 12345,
+
+    get parol() {
+        return this._parol;
+    },
+    set parol(val) {
+        this._parol = val;
+    },
+
+    updateProfile(newName, newAge, newEmail) {
+        this.name = newName;
+        (typeof newAge === "number" && newAge > 0) ? this.age = newAge : console.log("Ви вказали неправильний вік");
+        (typeof newEmail === 'string' && newEmail.includes('@')) ? this.email = newEmail : console.log("Невірна електронна адреса");
+
+    }
+}
+
+console.log(userProfile.parol);
+
+userProfile.parol = "New_Parol";
+
+console.log(userProfile.parol);
+
+userProfile.updateProfile("Max", 18, "email@gm.com");
+console.log(userProfile.name); //Max
+console.log(userProfile.email); //email@gm.com
+console.log(userProfile.age); //18
