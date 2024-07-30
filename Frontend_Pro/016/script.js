@@ -52,3 +52,20 @@ console.log("---------------------------------");
 
 delete otherCar.year // не видалилось
 console.log(otherCar);
+
+console.log("//////////////////////////////////");
+
+
+let book = {
+    title: "Lorem",
+    author: "Franklin",
+}
+
+console.log("---------------------------------");
+console.log(Object.freeze(book));
+
+book.title = "NO_LOREM";
+book.pages = 420;
+delete book.author;
+
+console.log(book); // нічого не змінилось
