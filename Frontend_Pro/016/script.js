@@ -69,3 +69,15 @@ book.pages = 420;
 delete book.author;
 
 console.log(book); // нічого не змінилось
+
+console.log("//////////////////////////////////");
+
+let apple = {
+    color: "green",
+    isRipe: true
+}
+
+Object.freeze(apple);
+apple.count = 2;
+console.log(apple); // нічого не змінилося, оюєкт лише для читання.
+
