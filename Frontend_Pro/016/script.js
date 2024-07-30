@@ -27,3 +27,28 @@ for (key in person) {
 console.log("--------------------------------");
 delete person.age; // видалилось успішно
 console.log(person);
+
+
+console.log("////////////////////////////////");
+let car = {
+    brand: "Audi",
+    model: "A4",
+    year: 2017,
+}
+
+Object.preventExtensions(car);
+car.color = "blue";
+
+console.log(car);
+console.log("---------------------------------");
+let otherCar = {
+    brand: "Audi",
+    model: "A4",
+    year: 2017,
+}
+
+console.log(Object.seal(otherCar));
+console.log("---------------------------------");
+
+delete otherCar.year // не видалилось
+console.log(otherCar);
