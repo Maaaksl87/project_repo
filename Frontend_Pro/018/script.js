@@ -23,3 +23,19 @@
 Здебільшого використовуються глобальні змінні.
 Обмежена розширюваність коду через відсутність успадкування.
 */
+
+class Person {
+    constructor(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    greet() {
+        console.log(`Привіт ${this.name}`);
+    }
+}
+
+const woman = new Person("Іванка", 22, "woman");
+const man = new Person("Олександр", 25, "man");
+woman.greet();
+man.greet();
