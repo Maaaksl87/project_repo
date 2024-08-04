@@ -57,3 +57,30 @@ class Student extends Person {
 
 const stud = new Student("Сашко", 1);
 stud.greet();
+
+//ЗАВДАННЯ 4
+console.log('//////////////////////');
+
+class Shape {
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+    calculateArea() {
+        return this.a * this.b;
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super(radius, undefined);
+        this.radius = radius;
+    }
+
+    calculateArea() {
+        return Math.PI * this.radius ** 2;
+    }
+}
+
+const obj = new Circle(10);
+console.log(obj.calculateArea());
