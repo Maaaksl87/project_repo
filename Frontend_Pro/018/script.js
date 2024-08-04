@@ -39,3 +39,21 @@ const woman = new Person("Іванка", 22, "woman");
 const man = new Person("Олександр", 25, "man");
 woman.greet();
 man.greet();
+
+//ЗАВДАННЯ 3
+console.log("///////////////////");
+
+
+class Student extends Person {
+    constructor(name, studentId) {
+        super(name);
+        this.studentId = studentId;
+    }
+    greet() {
+        console.log(`Привіт ${this.name}, твій ID ${this.studentId}`);
+
+    }
+}
+
+const stud = new Student("Сашко", 1);
+stud.greet();
