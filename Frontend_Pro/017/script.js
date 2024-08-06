@@ -1,23 +1,32 @@
-const Animal = {
+function Animal(name) {
+    this.name = name;
+}
 
-    constructor: function (name) {
-        this.name = name;
-        return this;
-    },
-    sound(sound) {
-        return sound;
-    },
-};
+Animal.prototype.sound = function () {
+    return this.sound
+}
 
-const Dog = Object.create(Animal).constructor("Albert");
-Dog.sound = "Wof";
+function Dog(name) {
+    Animal.call(this, name);
+}
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.sound = "Гав";
 
-console.log(Dog);
+function Cat(name) {
+    Animal.call(this, name);
+}
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.constructor = Cat;
+Cat.prototype.sound = "Мяу";
 
-const Cat = Object.create(Animal).constructor("Garfild");
-Cat.sound = "May";
+const dog = new Dog("Albert");
+console.log(dog);
+console.log(dog.sound);
 
-console.log(Cat);
+const cat = new Cat("Garfild");
+console.log(cat);
+console.log(cat.sound);
 
 
 class PizzaOrder {
