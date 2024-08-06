@@ -84,3 +84,42 @@ class Circle extends Shape {
 
 const obj = new Circle(10);
 console.log(obj.calculateArea());
+
+console.log("//////////////////////");
+
+class Library {
+    constructor(books = []) {
+        this.books = books;
+    }
+
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    returnBooks() {
+        return this.books;
+    }
+}
+
+class Book {
+    constructor(name, author, year) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+    }
+
+    getInfo() {
+        return `${this.name} by ${this.author}, ${this.year} year`;
+    }
+}
+
+const myLibrary = new Library();
+
+const book1 = new Book("To Kill a Mockingbird", "Harper Lee", 1988);
+const book2 = new Book("A Sky Painted Gold", "Laura Wood", 2000);
+
+myLibrary.addBook(book1);
+myLibrary.addBook(book2);
+
+console.log("Books in the library:");
+myLibrary.returnBooks().forEach(book => console.log(book.getInfo()));
