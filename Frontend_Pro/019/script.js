@@ -46,6 +46,40 @@ const secondTask = new TaskList(1, 'Зробити наступну справу
 secondTask.addToEl('елемент');
 console.log(secondTask);
 
+console.log("//////////////");
 
+class Planner {
+    constructor(id, title, desc) {
+        this.id = id;
+        this.title = title;
+        this.desc = desc;
+        this.taskLists = [];
+    }
+
+    addTaskList(taskList) {
+        if (taskList instanceof TaskList) {
+            this.taskLists.push(taskList);
+        }
+        return this;
+    }
+
+    getTaskLists() {
+        return this.taskLists;
+    }
+
+
+}
+
+const myPlanner = new Planner(1, 'Мій планер', 'Опис мого планера');
+
+
+myPlanner.addTaskList(newTask);
+
+myPlanner.addTaskList(secondTask);
+
+
+console.log(myPlanner);
+console.log('----------');
+console.log(myPlanner.getTaskLists());
 
 
