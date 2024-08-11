@@ -23,30 +23,43 @@ console.log(task1);
 
 console.log('//////////////');
 
-const TaskList = function (id, title, desc) {
-    this.id = id;
-    this.title = title;
-    this.desc = desc;
-    this.el = [];
+class TaskList {
+    constructor(id, title, desc) {
+        this.id = id;
+        this.title = title;
+        this.desc = desc;
+        this.el = [];
+    }
 
-    TaskList.prototype.addToEl = function (item) {
+    addToEl(item) {
         this.el.push(item);
         return this;
-    };
-};
+    }
 
+    // Додавання завдання з датою виконання
+    addTask(task, dueDate = null) {
+        const taskObj = {
+            task,
+            dueDate: dueDate ? new Date(dueDate) : null,
+            createdAt: new Date()
+        };
+        this.el.push(taskObj);
+        return this;
+    }
 
-const newTask = new TaskList(1, 'Зробити першу справу', 'lorem.....');
-newTask.addToEl(123);
-newTask.addToEl('text');
-console.log(newTask);
+    getTasksForToday() { // Фільтрація завдань за сьогоднішньою датою
+        const today = new Date();
+        return this.el.filter(item =>
+            item.dueDate &&
+            item.dueDate.toDateString() === today.toDateString()
+        );
+    }
 
-
-const secondTask = new TaskList(1, 'Зробити наступну справу', 'Кроки для вирішення...');
-secondTask.addToEl('елемент');
-console.log(secondTask);
-
-console.log("//////////////");
+    getAllTasks() {
+        return this.el;
+    }
+}
+console.log("================");
 
 class Planner {
     constructor(id, title, desc) {
@@ -67,19 +80,53 @@ class Planner {
         return this.taskLists;
     }
 
+    // Виведення всіх завдань з певного списку задач за сьогоднішньою датою
+    getTasksForToday() {
+        return this.taskLists.map(list => ({
+            listTitle: list.title,
+            tasks: list.getTasksForToday()
+        }));
+    }
 
+    // Видалення задачі за його id
+    removeTaskList(id) {
+        this.taskLists = this.taskLists.filter(list => list.id !== id);
+        return this;
+    }
+
+    // Оновлення інформації про список задач
+    updateTaskList(id, newTitle, newDesc) {
+        const taskList = this.taskLists.find(list => list.id === id);
+        if (taskList) {
+            taskList.title = newTitle || taskList.title;
+            taskList.desc = newDesc || taskList.desc;
+        }
+        return this;
+    }
 }
 
-const myPlanner = new Planner(1, 'Мій планер', 'Опис мого планера');
 
+const firstTasks = new TaskList(1, 'Робочі завдання', 'Завдання для швидкого завершення роботи');
+firstTasks.addTask('Пройти урок з курсів todor.academy', '2024-08-11');
+firstTasks.addTask('Вивчити щось нове', '2024-08-12');
 
-myPlanner.addTaskList(newTask);
+const secondTasks = new TaskList(2, 'Домашні завдання', 'Список справ вдома');
+secondTasks.addTask('Приготувати вечерю', '2024-08-11');
+secondTasks.addTask('Погуляти з собфкою', '2024-08-11');
 
-myPlanner.addTaskList(secondTask);
+const myPlanner = new Planner(1, 'Мій Планер', 'повсякденні завдання');
+myPlanner.addTaskList(firstTasks);
+myPlanner.addTaskList(secondTasks);
 
+// Виведення всіх завдань на сьогодні
+console.log('Завдання на сьогодні:', myPlanner.getTasksForToday());
 
-console.log(myPlanner);
-console.log('----------');
-console.log(myPlanner.getTaskLists());
+// Оновлення списку задач
+myPlanner.updateTaskList(1, 'Оновлені робочі завдання', 'Опис змінено');
+console.log('Оновлений список:', myPlanner.getTaskLists());
+
+// Видалення задачі за id
+myPlanner.removeTaskList(2);
+console.log('Списки після видалення:', myPlanner.getTaskLists());
 
 
