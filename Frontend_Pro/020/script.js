@@ -13,5 +13,17 @@ class Employee {
 }
 
 const firstAmployer = new Employee("Василь", 22, "Fronend dev", 2500);
-console.log(firstAmployer.calculateSalary(1000)); //3500$$$
+console.log(firstAmployer.calculateSalary()); //2500$$$
+
+
+class Developer extends Employee {
+    constructor(name, age, position, baseSalary, programmingLanguage) {
+        super(name, age, position, baseSalary);
+        this.programmingLanguage = programmingLanguage;
+    }
+}
+
+const secondAmployer = new Developer("Олег", 19, "Fronend dev", 500);
+console.log(secondAmployer.calculateSalary(500)); // 1000 $$$
+
 
