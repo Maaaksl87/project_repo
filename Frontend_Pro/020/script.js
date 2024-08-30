@@ -27,3 +27,21 @@ const secondAmployer = new Developer("Олег", 19, "Fronend dev", 500);
 console.log(secondAmployer.calculateSalary(500)); // 1000 $$$
 
 
+class Manager extends Employee {
+    constructor(name, age, position, baseSalary, teamSize) {
+        super(name, age, position, baseSalary);
+        this.teamSize = teamSize;
+    }
+    calculateSalary() {
+        const teamBonus = 100 * this.teamSize;
+        const totalSalary = teamBonus + this.baseSalary;
+        console.log(`У вас додатково є ${this.teamSize} співробітника, тому вам нараховано ${teamBonus}`);
+        return `Ваш дохід ${totalSalary}`;
+
+    }
+}
+
+const ManagerAmployer = new Manager("Світлана", 25, "Manager", 2000, 3);
+console.log(ManagerAmployer.calculateSalary());
+
+
