@@ -3,30 +3,40 @@ function Animal(name) {
 }
 
 Animal.prototype.sound = function () {
-    return this.sound
-}
+    return 'Звук тваринки';
+};
 
 function Dog(name) {
     Animal.call(this, name);
 }
+
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
-Dog.prototype.sound = "Гав";
+
+Dog.prototype.sound
+    = function () {
+        return 'Гав';
+    };
 
 function Cat(name) {
     Animal.call(this, name);
 }
+
 Cat.prototype = Object.create(Animal.prototype);
 Cat.prototype.constructor = Cat;
-Cat.prototype.sound = "Мяу";
 
-const dog = new Dog("Albert");
-console.log(dog);
-console.log(dog.sound);
+Cat.prototype.sound
+    = function () {
+        return 'Мяв!';
+    };
 
-const cat = new Cat("Garfild");
-console.log(cat);
-console.log(cat.sound);
+const myDog = new Dog('Patron');
+console.log(myDog.sound());
+
+const myCat = new Cat('Garfild');
+console.log(myCat.sound());
+
+console.log('///////////////////////////////////////////');
 
 
 class PizzaOrder {
