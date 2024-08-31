@@ -10,6 +10,20 @@
       function money(salary, expenses) {
         return salary - expenses;
       }
+
+      var first = "first";
+      let second = "second";
+      const third = "third";
+
+      console.log(window.first); //first
+      console.log(window.second); //undefind *блочна область видимості*
+      console.log(window.third); //undefind *блочна область видимості*
+
+      console.log(window.clientInformation);
+      console.log(window.document);
+      console.log(window.localStorage);
+
+      console.log(this);
     </script>
     <script src="./main.js"></script>
   </body>
