@@ -25,3 +25,8 @@ span {
 .pause {
   display: none;
 }
+
+.canvas {
+  width: 200px;
+  height: 200px;
+}

@@ -26,3 +26,15 @@ document.querySelector('.play-pause').addEventListener('click', function () {
 document.querySelector('.next').addEventListener('click', () => {
     trackNum = trackNum < 2 ? trackNum + 1 : 0;
 });
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+ctx.fillStyle = "green";
+ctx.fillRect(10, 10, 150, 100);
+
+document.querySelector('#canvas').addEventListener('click', function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "red";
+    ctx.fillRect(20, 15, 100, 150);
+})
