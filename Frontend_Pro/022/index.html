@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>022</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="track">
+        <div class="imageTrack">
+          <img src="./img/images.jpg" alt="" />
+        </div>
+        <p class="nameTrack">
+          <span>Tommy Richman</span> - MILLION DOLLAR BABY
+        </p>
+        <audio>
+          <source
+            src="./img/[Sounddrain_net] Tommy Richman - MILLION DOLLAR BABY.mp3"
+          />
+        </audio>
+        <div class="buttons">
+          <button class="previous">
+            <img src="./img/play-track-prev.svg" alt="" />
+          </button>
+          <button class="play-pause">
+            <img src="./img/play.svg" alt="" class="play" />
+            <img src="./img/pause.svg" alt="" class="pause" />
+          </button>
+          <button class="next">
+            <img src="./img/play-track-next.svg" alt="" />
+          </button>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+          class="volume"
+        />
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
