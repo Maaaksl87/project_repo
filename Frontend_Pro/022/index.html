@@ -43,7 +43,23 @@
       </section>
 
       <canvas id="canvas"></canvas>
+
+      <div id="map" style="width: 100%; height: 400px"></div>
     </div>
+    <script>
+      function initMap() {
+        var opt = {
+          zoom: 12,
+          center: { lat: 49.232736, lng: 28.470418 },
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), opt);
+      }
+    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCloAmIArvCWB2fMorGz5twzdfpgrTZpVQ&callback=initMap"
+    ></script>
     <script src="./script.js"></script>
   </body>
 </html>

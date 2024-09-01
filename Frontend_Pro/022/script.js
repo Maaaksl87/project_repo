@@ -37,4 +37,4 @@ document.querySelector('#canvas').addEventListener('click', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "red";
     ctx.fillRect(20, 15, 100, 150);
-})
+});
