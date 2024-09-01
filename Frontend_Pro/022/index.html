@@ -43,17 +43,28 @@
       </section>
 
       <canvas id="canvas"></canvas>
-
+      <div id="location">
+        <p>Your coordinates are:</p>
+        <p id="coordinates"></p>
+      </div>
       <div id="map" style="width: 100%; height: 400px"></div>
     </div>
     <script>
-      function initMap() {
-        var opt = {
+      function initMap(latitude = 49.232736, longitude = 28.470418) {
+        const mapOptions = {
           zoom: 12,
-          center: { lat: 49.232736, lng: 28.470418 },
+          center: { lat: latitude, lng: longitude },
         };
 
-        var map = new google.maps.Map(document.getElementById("map"), opt);
+        const map = new google.maps.Map(
+          document.getElementById("map"),
+          mapOptions
+        );
+
+        const marker = new google.maps.Marker({
+          position: { lat: latitude, lng: longitude },
+          map: map,
+        });
       }
     </script>
     <script

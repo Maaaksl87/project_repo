@@ -38,3 +38,26 @@ document.querySelector('#canvas').addEventListener('click', function () {
     ctx.fillStyle = "red";
     ctx.fillRect(20, 15, 100, 150);
 });
+function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    document.getElementById(
+        "coordinates"
+    ).textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+    initMap(latitude, longitude);
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("coordinates").textContent =
+            "Цей браузер не підтримує геолокаці.";
+    }
+}
+
+window.onload = function () {
+    getLocation();
+};
