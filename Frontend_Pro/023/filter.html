@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter task</title>
+  </head>
+  <body>
+    <h1>Список завдань</h1>
+
+    <input
+      type="text"
+      class="filter-input"
+      placeholder="Фільтрувати завдання..."
+    />
+
+    <ul class="task-list">
+      <li class="task-item">Купити продукти</li>
+      <li class="task-item">ПРойти тест</li>
+      <li class="task-item">Зробити зарядку</li>
+      <li class="task-item">Прочитати книгу</li>
+      <li class="task-item">Прибрати кімнату</li>
+    </ul>
+
+    <script>
+      let filterInput = document.querySelector(".filter-input");
+      let taskList = document.querySelector(".task-list");
+
+      filterInput.addEventListener("input", function () {
+        let filterText = filterInput.value.toLowerCase();
+        let tasks = document.querySelectorAll(".task-item");
+
+        // Проходимо через кожен елемент списку
+        tasks.forEach(function (task) {
+          let taskText = task.textContent.toLowerCase();
+
+          // Якщо текст завдання містить введений фільтр, показуємо елемент, інакше ховаємо
+          if (taskText.includes(filterText)) {
+            task.style.display = "";
+          } else {
+            task.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
