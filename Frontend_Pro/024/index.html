@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>024</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+        #textToChange {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <button id="changeColorBtn">Статично змінити колір</button>
+    <button id="randomColorBtn">Рандомно змінити колір</button>
+    <p id="textToChange">Колір тексту</p>
+
+    <script>
+        const btn = document.getElementById('changeColorBtn');
+        const randomBtn = document.getElementById('randomColorBtn'); //btn для рандомної зміни
+        const text = document.getElementById('textToChange');
+        const colors = ['black', 'red', 'blue', 'green', 'purple'];
+        let currentColorIndex = 0;
+
+        btn.addEventListener('click', function() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            text.style.color = colors[currentColorIndex];
+        });
+        // друний спосіб
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        randomBtn.addEventListener('click', () => {
+            text.style.color = getRandomColor();
+        });
+    </script>
+</html>
