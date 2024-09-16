@@ -14,11 +14,23 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
+            background-color: #f9f9f9;
         }
+
         button {
             font-size: 16px;
             padding: 10px 20px;
-            margin-bottom: 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
         #textToChange {
             font-size: 24px;
@@ -26,6 +38,23 @@
 
         .buttons {
             display: flex;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        
+        .selected {
+            background-color: lightblue;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -40,7 +69,6 @@
     <br>
     <div id="message"></div>
     <br>
-
     <audio controls>
         <source src="typographic-percussion-music-lapping-and-stomping-112968.mp3" type="audio/mp3"/>
     </audio>
@@ -53,6 +81,13 @@
         <input type="text"><br>
        <input type="submit" value="Відправити">
     </form>
+    <br>
+    <ul id="taskList">
+        <li>Завдання 1</li>
+        <li>Завдання 2</li>
+        <li>Завдання 3</li>
+        <li>Завдання 4</li>
+    </ul>
     <script>
         const btn = document.getElementById('changeColorBtn');
         const randomBtn = document.getElementById('randomColorBtn'); //btn для рандомної зміни
@@ -112,5 +147,14 @@
             });
         });
 
+        const listItems = document.querySelectorAll('#taskList li');
+
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                listItems.forEach(li => li.classList.remove('selected'));
+
+                item.classList.add('selected');
+            });
+        });
     </script>
 </html>
