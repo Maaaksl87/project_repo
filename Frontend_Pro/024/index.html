@@ -29,6 +29,13 @@
     <button id="changeColorBtn">Статично змінити колір</button>
     <button id="randomColorBtn">Рандомно змінити колір</button>
     <p id="textToChange">Колір тексту</p>
+    <br>
+
+    <input type="text" id="myInput" placeholder="Введіть текст" 
+    onfocus="handleFocusBlur(event)" onblur="handleFocusBlur(event)">
+
+    <div id="message"></div>
+    
 
     <script>
         const btn = document.getElementById('changeColorBtn');
@@ -52,5 +59,30 @@
         randomBtn.addEventListener('click', () => {
             text.style.color = getRandomColor();
         });
+
+        // друге завдання
+
+        // const handleFocusBlur = (event) => 
+        //     console.log
+        //     (event.type === 'focus' ? "Фокус набуто" : "Фокус втрачено");
+        
+        // з використанням alert вийшла цікава ситуація: коли фокус є - виводиться повідомлення "фокус набуто",
+        // і коли натиснути кнопку ОК, виводиться повідомлення "фокус втрачено", бо я натиснув на іншу кнопку,
+        // і якщо ще раз натиснути кнопку ОК, то знову виводиться повідомлення "фокус набуто", (бо до цього фокус був дійсно на ньому),
+        // і так до безкінечності, з цього циклу не можна вийти(не можна закрити alert повідомлення)
+
+        // const handleFocusBlur = (event) => 
+        //     alert
+        //     (event.type === 'focus' ? "Фокус набуто" : "Фокус втрачено");
+
+        // в спробах вирішити цю проблему, перезагружав сторінку дууже швидкО (ctrl + shift + R). В результаті чого через деякий час фокус втратився,
+        // а в консолі вибило помилку "GET http://127.0.0.1:5500/favicon.ico 404 (Not Found)". Не найкраще вирішення проблеми =), тому пошукаю інші варанти
+
+        const handleFocusBlur = (event) => {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerText = event.type === 'focus' ? "Фокус набуто" : "Фокус втрачено";
+        };
+
+        // розумним варіантом буде використовувати будь який метод показу повідомлення, окрім alert
     </script>
 </html>
