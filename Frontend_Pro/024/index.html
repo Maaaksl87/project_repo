@@ -23,6 +23,10 @@
         #textToChange {
             font-size: 24px;
         }
+
+        .buttons {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -33,9 +37,17 @@
 
     <input type="text" id="myInput" placeholder="Введіть текст" 
     onfocus="handleFocusBlur(event)" onblur="handleFocusBlur(event)">
-
+    <br>
     <div id="message"></div>
-    
+    <br>
+
+    <audio controls>
+        <source src="typographic-percussion-music-lapping-and-stomping-112968.mp3" type="audio/mp3"/>
+    </audio>
+    <br>
+    <div class="buttons">
+    <button>50</button> <button>30</button><button>100</button> <button>5</button>
+    </div>
 
     <script>
         const btn = document.getElementById('changeColorBtn');
@@ -84,5 +96,17 @@
         };
 
         // розумним варіантом буде використовувати будь який метод показу повідомлення, окрім alert
+
+        let audio = document.querySelector('audio');
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const volume = +e.target.innerText / 100; 
+                audio.currentTime = 0; 
+                audio.volume = volume; 
+                audio.play(); 
+            });
+        });
+
     </script>
 </html>
