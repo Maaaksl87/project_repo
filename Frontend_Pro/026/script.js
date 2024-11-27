@@ -14,3 +14,20 @@ console.log("End");
 
 
 */
+
+
+const button = document.getElementById("myButton");
+button.onclick = function () {
+    alert("Button clicked!");
+};
+
+//////////////////////////////////////
+
+const div = document.getElementById("myDiv");
+
+div.addEventListener("mouseover", () => {
+    div.style.backgroundColor = "blue"
+})
+div.addEventListener("mouseout", () => {
+    div.style.backgroundColor = "lightblue"
+})
