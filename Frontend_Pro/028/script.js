@@ -98,3 +98,34 @@ async function getResultFromPromise() {
   }
 }
 */
+
+//! 028_8 *Напишіть програму, яка виконує послідовні запити до сервера з використанням асинхронних функцій та async / await.*
+
+async function fetchData(url) {
+  try {
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Помилка при виконанні запиту: ${error.message}`);
+  }
+}
+
+async function fetchSequentialData() {
+  try {
+    let data1 = await fetchData('https://jsonplaceholder.typicode.com/posts/1');
+    console.log('Результат першого запиту:', data1);
+
+    let data2 = await fetchData('https://jsonplaceholder.typicode.com/posts/2');
+    console.log('Результат другого запиту:', data2);
+
+    let data3 = await fetchData('https://jsonplaceholder.typicode.com/posts/3');
+    console.log('Результат третього запиту:', data3);
+
+    console.log('Послідовні запити завершено');
+  } catch (error) {
+    console.error('Сталася помилка під час виконання запитів:', error.message);
+  }
+}
+
+fetchSequentialData();
