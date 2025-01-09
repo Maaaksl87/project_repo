@@ -14,3 +14,15 @@ function shoppingList(items) {
 
 const items = ['item1', 'item2', 'item3'];
 console.log(shoppingList(items));
+
+//3. Використання тегованих рядків
+
+function highlight(strings, ...values) {
+    return strings.map((str, i) => `${str}${values[i] ? `<strong>${values[i]}</strong>` : ''}`).join('');
+}
+
+const firstName = "Maks";
+const hobby = "coding";
+const result = highlight`Hi, I'm ${firstName} and I like ${hobby}.`;
+
+console.log(result);
