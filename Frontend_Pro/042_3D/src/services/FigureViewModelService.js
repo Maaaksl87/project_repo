@@ -1,4 +1,4 @@
-import { Figure } from "../models/Figure";
+import {Figure} from "../models/Figure";
 
 export class FigureViewModelService {
 
