@@ -19,7 +19,7 @@ export class FigureApiService {
     async addFigureData(figureData) {
         try {
             const newFigureData = await axios.post(this.basePath, figureData);
-            this.data.push(newFigureData);
+            this.data.push(newFigureData.data);
             return newFigureData;
         } catch (error) {
             console.error('Error adding figure data:', error);
@@ -30,6 +30,7 @@ export class FigureApiService {
         try {
             const updateFigureData = await axios.put(`${this.basePath}/${figureData.id}`, figureData);
             const index = this.data.findIndex((item) => item.id === figureData.id);
+           
             if (index !== -1) {
                 this.data[index] = updateFigureData;
                 return updateFigureData;

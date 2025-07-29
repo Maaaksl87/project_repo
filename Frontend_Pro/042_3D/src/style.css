@@ -28,3 +28,23 @@ body {
 #viewerRoot canvas {
   width: 60% !important;
 }
+
+.form-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+button[type="submit"] {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  background-color: #b9e79c;
+}
