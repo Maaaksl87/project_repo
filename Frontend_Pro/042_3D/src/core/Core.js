@@ -3,6 +3,7 @@ import {FigureList} from '../client/FigureList';
 import {FigureViewModelService} from '../services/FigureViewModelService';
 import {figureApiService} from '../api/FigureApiService';
 import {Viewer} from "../three/Viewer";
+import {GeometryTypes} from "../models/GeometryTypes";
 
 export class Core {
   constructor () {
@@ -12,6 +13,7 @@ export class Core {
 
     this.formController = new Form();
     this.formController.onCreate(this.onCreateHandler.bind(this));
+    this.formController.onFilter(this.onFilterHandler.bind(this));
 
     this.figureListController = new FigureList(this.onDeleteHandler.bind(this));
 
@@ -40,7 +42,8 @@ export class Core {
 
     this.figureListController.updateList(this.viewModels);
   }
-
+  
+  // Хендлер для створення фігури
   onCreateHandler(formData) {
     const figureViewModel = this.figureViewModelService.toViewModel(formData);
     figureApiService.addFigureData(figureViewModel);
@@ -49,10 +52,48 @@ export class Core {
     this.viewerController.draw(figureViewModel);
   }
 
+  // Хендлер для видалення фігури
   onDeleteHandler(id) {
     figureApiService.removeFigureData(id);
     this.viewerController.removeFigure(id);
     this.viewModels.splice(this.viewModels.findIndex(vm => vm.id === id), 1);
     this.figureListController.updateList(this.viewModels);
+  }
+
+  // Хендлер для фільтрації
+  onFilterHandler(selectedType, filterScene) {
+    this.currentFilter = selectedType;
+    this.currentFilterScene = filterScene;
+    this.updateFilteredView();
+  }
+  
+  updateFilteredView() {
+    // Фільтруємо фігури
+    const filteredFigures = this.currentFilter === "" 
+      ? this.viewModels 
+      : this.viewModels.filter(figure => {
+          const geometryTypeKey = Object.keys(GeometryTypes).find(key => 
+            GeometryTypes[key] === figure.geometryType
+          );
+          return geometryTypeKey === this.currentFilter;
+        });
+    
+    // Оновлюємо список
+    this.figureListController.updateList(filteredFigures);
+    
+    // Керуємо відображенням на 3D сцені
+    if (this.currentFilterScene) {
+      // Якщо галочка поставлена - показуємо тільки відфільтровані фігури
+      this.viewerController.clearScene();
+      filteredFigures.forEach(figure => {
+        this.viewerController.draw(figure);
+      });
+    } else {
+      // Якщо галочка знята - показуємо всі фігури
+      this.viewerController.clearScene();
+      this.viewModels.forEach(figure => {
+        this.viewerController.draw(figure);
+      });
+    }
   }
 }

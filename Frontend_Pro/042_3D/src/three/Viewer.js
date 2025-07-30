@@ -83,6 +83,19 @@ export class Viewer {
     }
   }
 
+  clearScene() {
+    // Видаляємо всі меші з сцени
+    const meshesToRemove = this.scene.children.filter(child => 
+      child.userData && child.userData.meshID
+    );
+    
+    meshesToRemove.forEach(mesh => {
+      this.scene.remove(mesh);
+    });
+    
+    this.drawnFiguresUUIDs = [];
+  }
+
   getRandomNumber(min, max){
     return Math.random() * (max - min) + min;
   }

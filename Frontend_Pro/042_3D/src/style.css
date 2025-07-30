@@ -48,3 +48,10 @@ button[type="submit"] {
   padding: 10px;
   background-color: #b9e79c;
 }
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+  align-items: start;
+}
