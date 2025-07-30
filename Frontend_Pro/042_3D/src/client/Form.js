@@ -84,13 +84,25 @@ export class Form {
         filterByColor.type = "color";
         filterByColor.value = "#ffffff";
 
+        // фільтрація за розміром
+        const filterBySize = document.createElement("input");
+        filterBySize.name = "filterSize";
+        filterBySize.id = "filterSize";
+        filterBySize.type = "range";
+        filterBySize.step = "1";
+        filterBySize.max = "10";
+        filterBySize.min = "1";
+        filterBySize.value = "5";
+       
+
         // функція для виклику фільтрації
         const triggerFilter = () => {
             const selectedType = filterByType.value;
             const filterScene = filterSceneCheckbox.checked;
             const selectedColor = filterByColor.value;
+            const selectedSize = filterBySize.value;
             if (this.onFilterCallback) {
-                this.onFilterCallback(selectedType, filterScene, selectedColor);
+                this.onFilterCallback(selectedType, filterScene, selectedColor, selectedSize);
             }
         };
 
@@ -98,9 +110,11 @@ export class Form {
         filterByType.addEventListener("change", triggerFilter);
         filterSceneCheckbox.addEventListener("change", triggerFilter);
         filterByColor.addEventListener("change", triggerFilter);
+        filterBySize.addEventListener("input", triggerFilter);
         
         filterSection.appendChild(this.createFormField("Фільтрувати за типом фігури", filterByType));
         filterSection.appendChild(this.createFormField("Фільтрувати за кольором", filterByColor));
+        filterSection.appendChild(this.createFormField("Фільтрувати за розміром", filterBySize));
         filterSection.appendChild(this.createFormField("Фільтрувати сцену?", filterSceneCheckbox));
     }
 

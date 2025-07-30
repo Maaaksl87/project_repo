@@ -61,10 +61,11 @@ export class Core {
   }
 
   // Хендлер для фільтрації
-  onFilterHandler(selectedType, filterScene, selectedColor) {
+  onFilterHandler(selectedType, filterScene, selectedColor, selectedSize) {
     this.currentFilter = selectedType;
     this.currentFilterScene = filterScene;
     this.currentFilterColor = selectedColor;
+    this.currentFilterSize = selectedSize;
     this.updateFilteredView();
   }
 
@@ -85,6 +86,14 @@ export class Core {
         figure.color.toLowerCase() === this.currentFilterColor.toLowerCase()
       );
     }
+
+    // за розміром
+    if (this.currentFilterSize && this.currentFilterSize !== "5") {
+      filteredFigures = filteredFigures.filter(figure => 
+        Number(figure.size) === Number(this.currentFilterSize)
+      );
+    }
+
     // Оновлюємо список
     this.figureListController.updateList(filteredFigures);
 
