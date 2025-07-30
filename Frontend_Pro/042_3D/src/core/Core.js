@@ -1,12 +1,12 @@
-import {Form} from '../client/Form';
-import {FigureList} from '../client/FigureList';
-import {FigureViewModelService} from '../services/FigureViewModelService';
-import {figureApiService} from '../api/FigureApiService';
-import {Viewer} from "../three/Viewer";
-import {GeometryTypes} from "../models/GeometryTypes";
+import { Form } from '../client/Form';
+import { FigureList } from '../client/FigureList';
+import { FigureViewModelService } from '../services/FigureViewModelService';
+import { figureApiService } from '../api/FigureApiService';
+import { Viewer } from "../three/Viewer";
+import { GeometryTypes } from "../models/GeometryTypes";
 
 export class Core {
-  constructor () {
+  constructor() {
     this.viewerCanvas = document.createElement("canvas");
     this.viewerCanvas.id = "viewerRoot";
     const root = document.getElementById("root");
@@ -42,7 +42,7 @@ export class Core {
 
     this.figureListController.updateList(this.viewModels);
   }
-  
+
   // Хендлер для створення фігури
   onCreateHandler(formData) {
     const figureViewModel = this.figureViewModelService.toViewModel(formData);
@@ -61,26 +61,33 @@ export class Core {
   }
 
   // Хендлер для фільтрації
-  onFilterHandler(selectedType, filterScene) {
+  onFilterHandler(selectedType, filterScene, selectedColor) {
     this.currentFilter = selectedType;
     this.currentFilterScene = filterScene;
+    this.currentFilterColor = selectedColor;
     this.updateFilteredView();
   }
-  
+
   updateFilteredView() {
-    // Фільтруємо фігури
-    const filteredFigures = this.currentFilter === "" 
-      ? this.viewModels 
+    // Фільтруємо фігури за типом
+    let filteredFigures = this.currentFilter === ""
+      ? this.viewModels
       : this.viewModels.filter(figure => {
-          const geometryTypeKey = Object.keys(GeometryTypes).find(key => 
-            GeometryTypes[key] === figure.geometryType
-          );
-          return geometryTypeKey === this.currentFilter;
-        });
-    
+        const geometryTypeKey = Object.keys(GeometryTypes).find(key =>
+          GeometryTypes[key] === figure.geometryType
+        );
+        return geometryTypeKey === this.currentFilter;
+      });
+
+    // за кольором
+    if (this.currentFilterColor && this.currentFilterColor !== "#ffffff") {
+      filteredFigures = filteredFigures.filter(figure =>
+        figure.color.toLowerCase() === this.currentFilterColor.toLowerCase()
+      );
+    }
     // Оновлюємо список
     this.figureListController.updateList(filteredFigures);
-    
+
     // Керуємо відображенням на 3D сцені
     if (this.currentFilterScene) {
       // Якщо галочка поставлена - показуємо тільки відфільтровані фігури

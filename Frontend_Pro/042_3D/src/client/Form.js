@@ -77,20 +77,30 @@ export class Form {
         filterSceneCheckbox.type = "checkbox";
         filterSceneCheckbox.checked = false;
 
+        // фільтрація за кольором
+        const filterByColor = document.createElement("input");
+        filterByColor.name = "filterColor";
+        filterByColor.id = "filterColor";
+        filterByColor.type = "color";
+        filterByColor.value = "#ffffff";
+
         // функція для виклику фільтрації
         const triggerFilter = () => {
             const selectedType = filterByType.value;
             const filterScene = filterSceneCheckbox.checked;
+            const selectedColor = filterByColor.value;
             if (this.onFilterCallback) {
-                this.onFilterCallback(selectedType, filterScene);
+                this.onFilterCallback(selectedType, filterScene, selectedColor);
             }
         };
 
         // Обробники подій
         filterByType.addEventListener("change", triggerFilter);
         filterSceneCheckbox.addEventListener("change", triggerFilter);
+        filterByColor.addEventListener("change", triggerFilter);
         
         filterSection.appendChild(this.createFormField("Фільтрувати за типом фігури", filterByType));
+        filterSection.appendChild(this.createFormField("Фільтрувати за кольором", filterByColor));
         filterSection.appendChild(this.createFormField("Фільтрувати сцену?", filterSceneCheckbox));
     }
 
