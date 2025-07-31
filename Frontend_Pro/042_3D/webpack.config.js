@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { sourceMapsEnabled } = require('process');
+const BundleAnalayzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports = (env, argv) => {
     const isDevelopment = argv.mode === "development"; //присвоюється значення, якщо воно є true(перевірка чи argv.mode === dev )
@@ -39,7 +40,8 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 template: "./src/index.html",
                 title: "task 042_3D"
-            })
+            }),
+            new BundleAnalayzerPlugin()
         ]
     }
 
