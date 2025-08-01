@@ -16,3 +16,18 @@ console.log(greet("Max"));
 let arrayOfNumbers: number[] = [1, 2, 3, 4, 5];
 let arrayOfFruits: string[] = ["apple", "banana", "cherry"];
 let person: [number, string] = [25, "John"]; //кортеж
+
+// Завдання 3 - Створення інтерфейсу для об'єктів
+
+interface Person {
+    name: string;
+    age: number;
+    isStudent: boolean;
+}
+
+let user: Person = {
+    name: 'Max',
+    age: 19,
+    isStudent: true
+}
+console.log(user);
