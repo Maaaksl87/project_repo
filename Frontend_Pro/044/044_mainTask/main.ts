@@ -38,8 +38,20 @@ function addNumbers(argOne: number, argTwo: number): number {
 }
 
 function indentify<T>(arg: T): T {
-    return arg;
+  return arg;
 }
 
 let str = indentify<string>("This is a string");
 let num = indentify<number>(20);
+
+// Завдання 5 - Створення Enum та використання Union типів
+
+enum Role {
+  Admin,
+  User,
+  Guest,
+}
+
+let currentRole: Role | "SuperAdmin" = "SuperAdmin";
+console.log(currentRole);
+
