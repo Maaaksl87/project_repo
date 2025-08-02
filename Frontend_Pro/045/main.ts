@@ -71,3 +71,15 @@ function getOrderStatus(status: OrderStatus): string {
 }
 
 console.log(getOrderStatus(OrderStatus.Delivered));
+
+// Завдання 5 - Utility Types: Partial та Omit
+
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+};
+
+type ProductUpdate = Partial<Product>;
+type ProductSummary = Omit<Product, 'description'>;
