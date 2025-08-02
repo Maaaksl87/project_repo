@@ -14,4 +14,15 @@ function printInfo(newUser) {
 }
 ;
 printInfo(newUser);
+function getStatus(status) {
+    switch (status) {
+        case "success":
+            return "Успішно!";
+        case "error":
+            return "Помилка!";
+        case "pending":
+            return "Очікування!";
+    }
+}
+console.log(getStatus("success"));
 //# sourceMappingURL=main.js.map

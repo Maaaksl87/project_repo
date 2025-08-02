@@ -21,3 +21,18 @@ function printInfo (newUser: User): void {
 };
 
 printInfo(newUser);
+
+// Завдання 2 - Літеральні типи
+
+type Status = "success" | "error" | "pending";
+function getStatus (status: Status): string {
+    switch (status) {
+        case "success":
+            return "Успішно!";
+        case "error":
+            return "Помилка!";
+        case "pending":
+            return "Очікування!";
+    }
+}
+console.log(getStatus("success"));
