@@ -36,3 +36,12 @@ function getStatus (status: Status): string {
     }
 }
 console.log(getStatus("success"));
+
+// Завдання 3 - Робота з кортежами
+
+let infoAboutStudent: [string, number] = ['Jhon', 3.75];
+
+function getStudentInfo(): void {
+    console.log(`Імя: ${infoAboutStudent[0]}, Середінй бал: ${infoAboutStudent[1]}`)
+}
+getStudentInfo();

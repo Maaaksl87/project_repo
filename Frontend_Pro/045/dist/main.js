@@ -25,4 +25,10 @@ function getStatus(status) {
     }
 }
 console.log(getStatus("success"));
+// Завдання 3 - Робота з кортежами
+let infoAboutStudent = ['Jhon', 3.75];
+function getStudentInfo() {
+    console.log(`Імя: ${infoAboutStudent[0]}, Середінй бал: ${infoAboutStudent[1]}`);
+}
+getStudentInfo();
 //# sourceMappingURL=main.js.map
