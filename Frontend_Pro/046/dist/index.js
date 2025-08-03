@@ -27,4 +27,16 @@ const newCar = new Car();
 const newBicycle = new Bicycle();
 newCar.drive();
 newBicycle.drive();
+class ElectricCar extends Vehicle {
+    startEngine() {
+        return "Electric car engine started";
+    }
+    chargeBattery() {
+        return "Electric car battery is charging";
+    }
+}
+const electricCar = new ElectricCar();
+electricCar.startEngine();
+electricCar.move();
+electricCar.chargeBattery();
 //# sourceMappingURL=index.js.map
