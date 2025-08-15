@@ -11,7 +11,7 @@ describe('ButtonComponent', () => {
     });
 
     test('викликає функцію onClick після кліку', () => {
-        const handleClick = jest.fn();
+        const handleClick = jest.fn();// мокаємо функцію щоб її можна було перевірити
         render(<ButtonComponent onClick={handleClick} />);
         const buttonElement = screen.getByRole('button', { name: /Click me!/i });
 

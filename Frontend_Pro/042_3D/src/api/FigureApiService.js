@@ -22,7 +22,7 @@ export class FigureApiService {
             this.data.push(newFigureData.data);
             return newFigureData;
         } catch (error) {
-            console.error('Error adding figure data:', error);
+            console.error('Error while adding figure data:', error);
         }
     }
 
