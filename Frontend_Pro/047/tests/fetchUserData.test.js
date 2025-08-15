@@ -1,4 +1,4 @@
-const fetchUserData = require('./fetchUserData')
+const fetchUserData = require('../src/fetchUserData')
 describe("Тестування двох варіантів", () => {
     afterEach(() => {
         jest.restoreAllMocks();
