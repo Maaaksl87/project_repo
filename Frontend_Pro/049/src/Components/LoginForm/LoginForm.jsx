@@ -8,13 +8,24 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (username === "admin" && password === "password") {
-      navigate("/dashboard");
-    } else {
-      alert("Invalid username or password");
+    (username === "admin" && password === "password") && navigate("/dashboard");
+
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
+      const users = await response.json();
+
+      const user = users.find((u) => u.username === username && u.name === password);
+
+      if (user) {
+        navigate("/dashboard");
+      } else {
+        alert("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
     }
   };
 
