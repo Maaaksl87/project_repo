@@ -7,4 +7,4 @@ const welcomeOtherElement = <p>Привіт! Тобі {userAge} років!</p>
 
 // Завдання 3 - Перевірка на відвідувача
 const isVisitor = true;
-const visitorStatusElement = (isVisitor) ? <p>Ласкаво просимо на наш курс!</p> : <p>Будь ласка, зареєструйтесь для доступу</p>
+const visitorStatusElement = <p>{(isVisitor) ? 'Ласкаво просимо на наш курс!' : 'Будь ласка, зареєструйтесь для доступу'}</p>
