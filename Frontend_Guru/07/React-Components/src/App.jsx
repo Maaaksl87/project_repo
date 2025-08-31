@@ -4,6 +4,7 @@ import { AlertComponent } from "./components/Alert";
 import { AppComponent } from "./components/AppComponent";
 import { StyledButton } from "./components/StyledButton";
 import { Person } from "./components/Person";
+import {Calculator} from "./components/Calculator";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       <AppComponent />
       <StyledButton text={"This is 4 task"} />
       <Person name={"Ali"} age={22} residence={"USA"}/>
+      <Calculator />
     </>
   );
 }
