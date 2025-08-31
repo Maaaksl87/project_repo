@@ -3,6 +3,7 @@ import { ButtonClass } from "./components/ButtonClass";
 import { AlertComponent } from "./components/Alert";
 import { AppComponent } from "./components/AppComponent";
 import { StyledButton } from "./components/StyledButton";
+import { Person } from "./components/Person";
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
       <AlertComponent message="qwerty" type="error" />
       <AppComponent />
       <StyledButton text={"This is 4 task"} />
+      <Person name={"Ali"} age={22} residence={"USA"}/>
     </>
   );
 }
