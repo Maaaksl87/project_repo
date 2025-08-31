@@ -1,13 +1,13 @@
-import { useState } from "react";
-
 import "./App.css";
-import { ButtonClass } from "./ButtonClass";
-import { AlertComponent } from "./Alert";
+import { ButtonClass } from "./components/ButtonClass";
+import { AlertComponent } from "./components/Alert";
+import { AppComponent } from "./components/AppComponent";
 function App() {
   return (
     <>
       <ButtonClass />
-      <AlertComponent message="qwerty" type="error"/>
+      <AlertComponent message="qwerty" type="error" />
+      <AppComponent />
     </>
   );
 }
