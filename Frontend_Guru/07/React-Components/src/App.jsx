@@ -2,13 +2,12 @@ import { useState } from "react";
 
 import "./App.css";
 import { ButtonClass } from "./ButtonClass";
-
+import { AlertComponent } from "./Alert";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <ButtonClass />
+      <AlertComponent message="qwerty" type="error"/>
     </>
   );
 }
