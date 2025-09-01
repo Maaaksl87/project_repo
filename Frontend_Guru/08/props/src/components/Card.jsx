@@ -4,7 +4,7 @@ import { Component } from "react";
 export class Card extends Component {
   render() {
     return (
-      <div className="card">
+      <div className="card styled">
         <h1 className="card-title">{this.props.title}</h1>
         <p>{this.props.children}</p>
       </div>

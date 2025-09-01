@@ -1,0 +1,60 @@
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #37dfa5;
+  border-radius: 10px;
+  width: 300px;
+  gap: 15px;
+  padding: 10px 10px;
+}
+
+.toggle-wrapper span {
+  border-radius: 10px;
+  padding: 4px 5px;
+}
+.toggle-wrapper .span-active {
+  background-color: #58f36ac5;
+}
+
+.toggle-wrapper .span-inactive {
+  background-color: #ef5239;
+}
+
+.toggle-btn {
+  background-color: antiquewhite;
+  border: 1px solid #aaa;
+  border-radius: 99px;
+  width: 50px;
+  height: 28px;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.toggle-btn .thumb {
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 99px;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-btn.isOn {
+  background-color: #37dfa5;
+}
+
+.isOn:hover {
+  border-color: rgb(226, 252, 196);
+}
+
+.toggle-btn.isOn .thumb {
+  left: calc(50px - 25px);
+}
