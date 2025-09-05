@@ -25,17 +25,23 @@ export class TemperatureConverter extends Component {
 
   render() {
     return (
-      <div>
-        <input
-          type="number"
-          value={this.state.celsius}
-          onChange={this.handleCelsiusChange}
-        />
-        <input
-          type="number"
-          value={this.state.fahrenheit}
-          onChange={this.handleFahrenheitChange}
-        />
+      <div style={{display: "flex", flexDirection: "column"}}>
+        <label>
+          Celsius:
+          <input
+            type="number"
+            value={this.state.celsius}
+            onChange={this.handleCelsiusChange}
+          />
+        </label>
+        <label>
+          Fahrenheit:
+          <input
+            type="number"
+            value={this.state.fahrenheit}
+            onChange={this.handleFahrenheitChange}
+          />
+        </label>
       </div>
     );
   }
