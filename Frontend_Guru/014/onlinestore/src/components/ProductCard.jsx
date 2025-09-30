@@ -1,3 +1,5 @@
+// Презентаційний компонент
+
 function ProductCard({ image, name, header, price, onAddToCart }) {
   return (
     <div className="product-card">
