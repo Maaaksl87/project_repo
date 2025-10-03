@@ -1,0 +1,37 @@
+/* Прибираємо стандартні відступи */
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+/* Прибираємо стилі заголовків */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;  /* наслідує від body */
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Прибираємо стилі абзаців */
+p {
+  margin: 0;
+}
+
+/* Списки */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Посилання */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Зображення */
+img {
+  max-width: 100%;
+  display: block;
+}

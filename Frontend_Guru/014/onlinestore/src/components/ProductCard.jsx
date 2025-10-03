@@ -1,15 +1,19 @@
 // Презентаційний компонент
-import Button from "./Button";
-import CardImage from "./CardImage";
+import { styled } from "styled-components";
+
+import ImgWrapper from "./ImgWrapper";
 import CardDescription from "./CardDescription";
 
-function ProductCard({ image, name, header, price, onAddToCart }) {
+const StyledProductCard = styled.div`
+  max-width: 220px;
+  margin-bottom: 20px;
+`;
+function ProductCard({ image, category, header, price, onAddToCart }) {
   return (
-    <div className="product-card">
-      <CardImage src={image} alt={name || "Product image"} />
-      <Button>Add to Cart</Button>
-      <CardDescription name={name} header={header} price={price} />
-    </div>
+    <StyledProductCard className="product-card">
+      <ImgWrapper className="image-wrapper" image={image} category={category} />
+      <CardDescription category={category} header={header} price={price} />
+    </StyledProductCard>
   );
 }
 

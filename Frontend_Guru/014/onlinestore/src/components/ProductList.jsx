@@ -16,7 +16,7 @@ function ProductList() {
         <ProductCard
           key={product._id}
           image={product.image}
-          name={product.name}
+          category={product.category}
           header={product.header}
           price={product.price}
         />
