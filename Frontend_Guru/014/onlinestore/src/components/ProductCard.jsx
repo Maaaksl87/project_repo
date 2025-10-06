@@ -5,8 +5,7 @@ import ImgWrapper from "./ImgWrapper";
 import CardDescription from "./CardDescription";
 
 const StyledProductCard = styled.div`
-  max-width: 220px;
-  margin-bottom: 20px;
+  width: 100%;
 `;
 function ProductCard({ image, category, header, price, onAddToCart }) {
   return (

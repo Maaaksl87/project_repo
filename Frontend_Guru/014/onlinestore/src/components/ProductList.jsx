@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
+import { styled } from "styled-components";
 import ProductCard from "./ProductCard";
+
+const StyledProductList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+`;
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -11,7 +18,7 @@ function ProductList() {
   }, []);
 
   return (
-    <div className="product-list">
+    <StyledProductList className="product-list">
       {products.map((product) => (
         <ProductCard
           key={product._id}
@@ -21,7 +28,7 @@ function ProductList() {
           price={product.price}
         />
       ))}
-    </div>
+    </StyledProductList>
   );
 }
 

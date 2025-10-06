@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   width: 150px;
 
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
 `;
