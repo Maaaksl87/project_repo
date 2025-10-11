@@ -7,9 +7,12 @@ const StyledCardDescription = styled.article`
   }
   .product-card__title {
     margin: 5px 0;
+    font-size: 16px;
+    font-weight: 600;
   }
   .product-card__price {
     color: hsl(14, 86%, 42%);
+    font-weight: 600;
   }
 `;
 

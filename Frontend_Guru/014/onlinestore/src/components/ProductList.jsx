@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 
 const StyledProductList = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 260px);
   gap: 20px;
 `;
 

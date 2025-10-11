@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 import "./App.css";
 import ProductList from "./components/ProductList";
+import Cart from "./components/Cart"
 
 const Title = styled.div`
   text-align: left;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
   color: #333;
   margin-bottom: 20px;
 `;
@@ -13,8 +14,13 @@ const Title = styled.div`
 function App() {
   return (
     <div className="app">
-      <Title>Desserts</Title>
-      <ProductList />
+      <div>
+        <Title>Desserts</Title>
+        <ProductList />
+      </div>
+      <div>
+        <Cart/>
+      </div>
     </div>
   );
 }

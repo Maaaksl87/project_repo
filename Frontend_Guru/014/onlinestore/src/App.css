@@ -1,8 +1,21 @@
 
 #root {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+.app {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.app > div:first-child {
+  flex: 0 0 auto;
+}
+
+.app > div:last-child {
+  flex: 0 0 300px;
 }
 
