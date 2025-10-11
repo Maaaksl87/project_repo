@@ -22,10 +22,10 @@ function ProductList() {
       {products.map((product) => (
         <ProductCard
           key={product._id}
-          image={product.image}
+          image={product.image.desktop}
           category={product.category}
-          header={product.header}
-          price={product.price}
+          header={product.name}
+          price={`$${product.price}`}
         />
       ))}
     </StyledProductList>
