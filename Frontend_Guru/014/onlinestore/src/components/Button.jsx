@@ -18,9 +18,32 @@ const StyledButton = styled.button`
   transform: translateX(-50%);
 `;
 
-function Button({ children, onClick, ...props }) {
+function Button({
+  children,
+  product,
+  addToCart,
+  isInCart,
+  quantity,
+  updateQuantity,
+}) {
+  if (isInCart) {
+    return (
+      <>
+        <button onClick={() => updateQuantity(product._id, quantity - 1)}>
+          -
+        </button>
+        <span>{quantity}</span>
+        <button onClick={() => updateQuantity(product._id, quantity + 1)}>
+          +
+        </button>
+      </>
+    );
+  }
   return (
-    <StyledButton className="product-card__button" onClick={onClick} {...props}>
+    <StyledButton
+      className="product-card__button"
+      onClick={() => addToCart(product)}
+    >
       <CartIcon />
       {children}
     </StyledButton>

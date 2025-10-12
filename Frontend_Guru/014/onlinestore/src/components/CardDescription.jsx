@@ -16,11 +16,11 @@ const StyledCardDescription = styled.article`
   }
 `;
 
-function CardDescription({ category, header, price }) {
+function CardDescription({ category, name, price }) {
   return (
     <StyledCardDescription>
       <span className="product-card__category">{category}</span>
-      <h2 className="product-card__title">{header}</h2>
+      <h2 className="product-card__title">{name}</h2>
       <span className="product-card__price">{price}</span>
     </StyledCardDescription>
   );

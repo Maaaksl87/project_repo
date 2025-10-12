@@ -7,11 +7,13 @@ import CardDescription from "./CardDescription";
 const StyledProductCard = styled.div`
   width: 100%;
 `;
-function ProductCard({ image, category, header, price, onAddToCart }) {
+function ProductCard({ product, cartItems, addToCart }) {
+  const {image, category, name, price} = product;
+
   return (
-    <StyledProductCard className="product-card">
-      <ImgWrapper className="image-wrapper" image={image} category={category} />
-      <CardDescription category={category} header={header} price={price} />
+    <StyledProductCard >
+      <ImgWrapper image={image.desktop} category={category} product={product} cartItems={cartItems} addToCart={addToCart}/>
+      <CardDescription category={category} name={name} price={`$${Number(price).toFixed(2)}`} />
     </StyledProductCard>
   );
 }

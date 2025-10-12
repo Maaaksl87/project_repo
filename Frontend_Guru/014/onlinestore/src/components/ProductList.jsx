@@ -8,7 +8,7 @@ const StyledProductList = styled.div`
   gap: 20px;
 `;
 
-function ProductList() {
+function ProductList({ addToCart, cartItems }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,11 +21,19 @@ function ProductList() {
     <StyledProductList className="product-list">
       {products.map((product) => (
         <ProductCard
+          // product={product}
+          // key={product._id}
+          // image={product.image.desktop} // покищо отримуємо десктопну версію картинки
+          // category={product.category}
+          // header={product.name}
+          // price={`$${product.price}`}
+          // addToCart={addToCart}
+          // cartItems={cartItems}
+
+          product={product}
           key={product._id}
-          image={product.image.desktop}
-          category={product.category}
-          header={product.name}
-          price={`$${product.price}`}
+          addToCart={addToCart}
+          cartItems={cartItems}
         />
       ))}
     </StyledProductList>

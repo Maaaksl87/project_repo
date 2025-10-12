@@ -11,11 +11,22 @@ const StyledWrapperImg = styled.div`
   }
 `;
 
-function ImgWrapper({ image, category }) {
+function ImgWrapper({ image, category, product, addToCart, cartItems }) {
+  const cartItem = cartItems.find((item) => item._id === product._id);
+  const isInCart = !!cartItem;
+  const quantity = cartItem?.quantity || 0;
+
   return (
     <StyledWrapperImg>
       <img src={image} alt={category || "Product image"} />
-      <Button>Add to Cart</Button>
+      <Button
+        product={product}
+        addToCart={addToCart}
+        isInCart={isInCart}
+        quantity={quantity}
+      >
+        Add to Cart
+      </Button>
     </StyledWrapperImg>
   );
 }
