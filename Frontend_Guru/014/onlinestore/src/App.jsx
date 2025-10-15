@@ -41,17 +41,17 @@ function App() {
     });
   };
 
-  const updateQuantity = (product, newQuantity) => {
+  const updateQuantity = (productId, newQuantity) => {
     setCartItems((prevItems) => {
       if (newQuantity <= 0) {
         // Якщо кількість 0 або менше - залишаємо 0
         return prevItems.map((item) =>
-          item._id === product._id ? { ...item, quantity: 0 } : item
+          item._id === productId ? { ...item, quantity: 0 } : item
         );
       }
       // інакше оновлюємо кількість
       return prevItems.map((item) =>
-        item._id === product._id ? { ...item, quantity: newQuantity } : item
+        item._id === productId ? { ...item, quantity: newQuantity } : item
       );
     });
   };
@@ -60,7 +60,7 @@ function App() {
     <div className="app">
       <div>
         <Title>Desserts</Title>
-        <ProductList addToCart={addToCart} cartItems={cartItems} />
+        <ProductList addToCart={addToCart} cartItems={cartItems} updateQuantity={updateQuantity} />
       </div>
       <div>
         <Cart

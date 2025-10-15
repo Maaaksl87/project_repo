@@ -7,12 +7,12 @@ import CardDescription from "./CardDescription";
 const StyledProductCard = styled.div`
   width: 100%;
 `;
-function ProductCard({ product, cartItems, addToCart }) {
+function ProductCard({ product, cartItems, addToCart, updateQuantity }) {
   const {image, category, name, price} = product;
 
   return (
     <StyledProductCard >
-      <ImgWrapper image={image.desktop} category={category} product={product} cartItems={cartItems} addToCart={addToCart}/>
+      <ImgWrapper image={image.desktop} category={category} product={product} cartItems={cartItems} addToCart={addToCart} updateQuantity={updateQuantity}/>
       <CardDescription category={category} name={name} price={`$${Number(price).toFixed(2)}`} />
     </StyledProductCard>
   );

@@ -11,7 +11,7 @@ const StyledWrapperImg = styled.div`
   }
 `;
 
-function ImgWrapper({ image, category, product, addToCart, cartItems }) {
+function ImgWrapper({ image, category, product, addToCart, cartItems, updateQuantity }) {
   const cartItem = cartItems.find((item) => item._id === product._id);
   const isInCart = !!cartItem;
   const quantity = cartItem?.quantity || 0;
@@ -24,6 +24,7 @@ function ImgWrapper({ image, category, product, addToCart, cartItems }) {
         addToCart={addToCart}
         isInCart={isInCart}
         quantity={quantity}
+        updateQuantity={updateQuantity}
       >
         Add to Cart
       </Button>

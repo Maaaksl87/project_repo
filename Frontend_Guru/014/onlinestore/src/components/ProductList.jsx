@@ -8,7 +8,7 @@ const StyledProductList = styled.div`
   gap: 20px;
 `;
 
-function ProductList({ addToCart, cartItems }) {
+function ProductList({ addToCart, cartItems, updateQuantity }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ function ProductList({ addToCart, cartItems }) {
           key={product._id}
           addToCart={addToCart}
           cartItems={cartItems}
+          updateQuantity={updateQuantity}
         />
       ))}
     </StyledProductList>
