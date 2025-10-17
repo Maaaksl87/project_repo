@@ -44,10 +44,8 @@ function App() {
   const updateQuantity = (productId, newQuantity) => {
     setCartItems((prevItems) => {
       if (newQuantity <= 0) {
-        // Якщо кількість 0 або менше - залишаємо 0
-        return prevItems.map((item) =>
-          item._id === productId ? { ...item, quantity: 0 } : item
-        );
+        // Якщо кількість 0 видаляємо товар
+        return prevItems.filter((item) => item._id !== productId);
       }
       // інакше оновлюємо кількість
       return prevItems.map((item) =>
@@ -60,7 +58,11 @@ function App() {
     <div className="app">
       <div>
         <Title>Desserts</Title>
-        <ProductList addToCart={addToCart} cartItems={cartItems} updateQuantity={updateQuantity} />
+        <ProductList
+          addToCart={addToCart}
+          cartItems={cartItems}
+          updateQuantity={updateQuantity}
+        />
       </div>
       <div>
         <Cart

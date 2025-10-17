@@ -27,14 +27,72 @@ const EmptyDiv = styled.div`
   }
 `;
 
-function Cart() {
+function Cart({ cartItems, removeFromCart, updateQuantity }) {
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <CartContainer>
-      <Title className="cart-title">Your Cart (0)</Title>
-      <EmptyDiv className="cart-image">
-        <img src="..\assets\images\illustration-empty-cart.svg" alt="" />
-        <span>Your added items will appear here</span>
-      </EmptyDiv>
+      <Title className="cart-title">Your Cart ({totalItems})</Title>
+
+      {cartItems.length === 0 ? (
+        <EmptyDiv className="cart-image">
+          <img
+            src="..\assets\images\illustration-empty-cart.svg"
+            alt="Image for empty cart"
+          />
+          <span>Your added items will appear here</span>
+        </EmptyDiv>
+      ) : (
+        <div>
+          {cartItems.map((item) => (
+            <div
+              key={item._id}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "10px 0",
+                borderBottom: "1px solid #eee",
+              }}
+            >
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <img
+                  src={item.image.desktop}
+                  alt={item.name}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "5px",
+                  }}
+                />
+                <div>
+                  <h4>{item.name}</h4>
+                  <p>${Number(item.price).toFixed(2)}</p>
+                </div>
+              </div>
+
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <button
+                  onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                >
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                >
+                  +
+                </button>
+                <button onClick={() => removeFromCart(item)}>X</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </CartContainer>
   );
 }
