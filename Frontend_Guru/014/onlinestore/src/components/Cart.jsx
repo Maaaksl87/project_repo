@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { styled } from "styled-components";
 
 const CartContainer = styled.div`
@@ -27,8 +27,46 @@ const EmptyDiv = styled.div`
   }
 `;
 
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+`;
+
+const WrapperDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    color: hsl(7, 20%, 60%);
+  }
+`;
+
+const TotalSum = styled.div`
+  margin-top: 20px;
+  padding: 15px;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(14, 86%, 42%);
+  text-align: center;
+`;
+
 function Cart({ cartItems, removeFromCart, updateQuantity }) {
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  // мемоізований розрахунок, перераховується тільки при зміні cartItems
+  const { totalItems, totalSum } = useMemo(() => {
+    return cartItems.reduce(
+      (acc, item) => ({
+        totalItems: acc.totalItems + item.quantity,
+        totalSum: acc.totalSum + (item.price * item.quantity)
+      }),
+      { totalItems: 0, totalSum: 0 }
+    );
+  }, [cartItems]);
 
   return (
     <CartContainer>
@@ -45,22 +83,11 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
       ) : (
         <div>
           {cartItems.map((item) => (
-            <div
-              key={item._id}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "10px 0",
-                borderBottom: "1px solid #eee",
-              }}
-            >
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
-              >
+            <CartItem key={item._id}>
+              <WrapperDiv>
                 <img
-                  src={item.image.desktop}
-                  alt={item.name}
+                  src={item.image?.desktop || item.image}
+                  alt={item.name || 'Product'}
                   style={{
                     width: "40px",
                     height: "40px",
@@ -69,13 +96,12 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
                 />
                 <div>
                   <h4>{item.name}</h4>
-                  <p>${Number(item.price).toFixed(2)}</p>
+                  <p>${Number(item.price || 0).toFixed(2)}</p>
+                  <p>${Number((item.price || 0) * (item.quantity || 0)).toFixed(2)}</p>
                 </div>
-              </div>
+              </WrapperDiv>
 
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
-              >
+              <WrapperDiv>
                 <button
                   onClick={() => updateQuantity(item._id, item.quantity - 1)}
                 >
@@ -88,9 +114,10 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
                   +
                 </button>
                 <button onClick={() => removeFromCart(item)}>X</button>
-              </div>
-            </div>
+              </WrapperDiv>
+            </CartItem>
           ))}
+          <TotalSum>Total: ${Number(totalSum).toFixed(2)}</TotalSum>
         </div>
       )}
     </CartContainer>
