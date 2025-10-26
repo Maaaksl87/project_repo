@@ -37,12 +37,30 @@ const CartItem = styled.div`
 
 const WrapperDiv = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   gap: 10px;
 
-  p {
+  h4.name,
+  p.total-price,
+  span.quantity {
+    font-weight: 500;
+  }
+  span.quantity {
+    color: hsl(14, 86%, 42%);
+  }
+
+  p.price {
     color: hsl(7, 20%, 60%);
   }
+  p.total-price {
+    color: hsl(12, 20%, 44%);
+  }
+`;
+const CartItemDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `;
 
 const TotalSum = styled.div`
@@ -56,13 +74,30 @@ const TotalSum = styled.div`
   text-align: center;
 `;
 
+const QuantityButton = styled.button`
+  border-radius: 50%;
+  border: hsl(7, 20%, 60%) 1px solid;
+  width: 16px;
+  padding: 3px;
+
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.increment {
+    background-color: #fff;
+    color: hsl(14, 86%, 42%);
+  }
+`;
+
 function Cart({ cartItems, removeFromCart, updateQuantity }) {
   // мемоізований розрахунок, перераховується тільки при зміні cartItems
   const { totalItems, totalSum } = useMemo(() => {
     return cartItems.reduce(
       (acc, item) => ({
         totalItems: acc.totalItems + item.quantity,
-        totalSum: acc.totalSum + (item.price * item.quantity)
+        totalSum: acc.totalSum + item.price * item.quantity,
       }),
       { totalItems: 0, totalSum: 0 }
     );
@@ -85,36 +120,27 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
           {cartItems.map((item) => (
             <CartItem key={item._id}>
               <WrapperDiv>
-                <img
-                  src={item.image?.desktop || item.image}
-                  alt={item.name || 'Product'}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "5px",
-                  }}
-                />
-                <div>
-                  <h4>{item.name}</h4>
-                  <p>${Number(item.price || 0).toFixed(2)}</p>
-                  <p>${Number((item.price || 0) * (item.quantity || 0)).toFixed(2)}</p>
-                </div>
+                <h4 className="name">{item.name}</h4>
+                <CartItemDiv>
+                  <span className="quantity">{item.quantity}x</span>
+                  <p className="price">
+                    @ ${Number(item.price || 0).toFixed(2)}
+                  </p>
+                  <p className="total-price">
+                    $
+                    {Number((item.price || 0) * (item.quantity || 0)).toFixed(
+                      2
+                    )}
+                  </p>
+                </CartItemDiv>
               </WrapperDiv>
 
-              <WrapperDiv>
-                <button
-                  onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                >
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                >
-                  +
-                </button>
-                <button onClick={() => removeFromCart(item)}>X</button>
-              </WrapperDiv>
+              <QuantityButton onClick={() => removeFromCart(item)}>
+                <img
+                  src="\src\assets\images\icon-remove-item.svg"
+                  alt="remove item"
+                />
+              </QuantityButton>
             </CartItem>
           ))}
           <TotalSum>Total: ${Number(totalSum).toFixed(2)}</TotalSum>

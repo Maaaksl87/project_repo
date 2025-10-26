@@ -52,12 +52,6 @@ const QuantityButton = styled.button`
   }
 `;
 
-const QuantitySpan = styled.span`
-  font-weight: bold;
-  min-width: 20px;
-  text-align: center;
-`;
-
 function Button({
   children,
   product,
