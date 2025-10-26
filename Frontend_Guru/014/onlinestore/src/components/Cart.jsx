@@ -5,6 +5,10 @@ const CartContainer = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+
+  & .order-total span {
+    font-size: 21px;
+  }
 `;
 
 const Title = styled.h2`
@@ -33,6 +37,17 @@ const CartItem = styled.div`
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+
+  & + div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+
+    span {
+      font-weight: 700;
+    }
+  }
 `;
 
 const WrapperDiv = styled.div`
@@ -63,17 +78,6 @@ const CartItemDiv = styled.div`
   gap: 10px;
 `;
 
-const TotalSum = styled.div`
-  margin-top: 20px;
-  padding: 15px;
-  background-color: hsl(0, 0%, 95%);
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: hsl(14, 86%, 42%);
-  text-align: center;
-`;
-
 const QuantityButton = styled.button`
   border-radius: 50%;
   border: hsl(7, 20%, 60%) 1px solid;
@@ -88,6 +92,46 @@ const QuantityButton = styled.button`
   &.increment {
     background-color: #fff;
     color: hsl(14, 86%, 42%);
+  }
+`;
+
+const DeliveryInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: hsl(20, 50%, 98%);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 15px 0;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    font-size: 14px;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+`;
+
+const ConfirmButton = styled.button`
+  width: 100%;
+  background-color: hsl(14, 86%, 42%);
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: hsl(14, 86%, 35%);
   }
 `;
 
@@ -143,7 +187,19 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
               </QuantityButton>
             </CartItem>
           ))}
-          <TotalSum>Total: ${Number(totalSum).toFixed(2)}</TotalSum>
+          <div className="order-total">
+            <p>Order Total</p> <span>${Number(totalSum).toFixed(2)}</span>
+          </div>
+          <DeliveryInfo>
+            <img
+              src="/src/assets/images/icon-carbon-neutral.svg"
+              alt="Eco friendly"
+            />
+            <span>
+              This is a <strong>carbon-neutral</strong> delivery
+            </span>
+          </DeliveryInfo>
+          <ConfirmButton>Confirm Order</ConfirmButton>
         </div>
       )}
     </CartContainer>
