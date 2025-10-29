@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import ProductCard from "./ProductCard";
 
@@ -8,28 +7,11 @@ const StyledProductList = styled.div`
   gap: 20px;
 `;
 
-function ProductList({ addToCart, cartItems, updateQuantity }) {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
+function ProductList({ products, addToCart, cartItems, updateQuantity }) {
   return (
     <StyledProductList className="product-list">
       {products.map((product) => (
         <ProductCard
-          // product={product}
-          // key={product._id}
-          // image={product.image.desktop} // покищо отримуємо десктопну версію картинки
-          // category={product.category}
-          // header={product.name}
-          // price={`$${product.price}`}
-          // addToCart={addToCart}
-          // cartItems={cartItems}
-
           product={product}
           key={product._id}
           addToCart={addToCart}

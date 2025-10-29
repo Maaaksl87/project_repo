@@ -1,5 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { styled } from "styled-components";
+import Modal from "./Modal";
 
 const CartContainer = styled.div`
   background-color: white;
@@ -135,8 +136,9 @@ const ConfirmButton = styled.button`
   }
 `;
 
-function Cart({ cartItems, removeFromCart, updateQuantity }) {
-  // мемоізований розрахунок, перераховується тільки при зміні cartItems
+function Cart({ cartItems, removeFromCart, updateQuantity, clearCart }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { totalItems, totalSum } = useMemo(() => {
     return cartItems.reduce(
       (acc, item) => ({
@@ -199,9 +201,19 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
               This is a <strong>carbon-neutral</strong> delivery
             </span>
           </DeliveryInfo>
-          <ConfirmButton>Confirm Order</ConfirmButton>
+          <ConfirmButton onClick={() => setIsModalOpen(true)}>
+            Confirm Order
+          </ConfirmButton>
         </div>
       )}
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        cartItems={cartItems}
+        totalSum={totalSum}
+        clearCart={clearCart}
+      />
     </CartContainer>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import "./App.css";
-import ProductList from "./components/ProductList";
+import ProductContainer from "./components/ProductContainer";
 import Cart from "./components/Cart";
 
 const Title = styled.div`
@@ -54,11 +54,15 @@ function App() {
     });
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <div className="app">
       <div>
         <Title>Desserts</Title>
-        <ProductList
+        <ProductContainer
           addToCart={addToCart}
           cartItems={cartItems}
           updateQuantity={updateQuantity}
@@ -69,6 +73,7 @@ function App() {
           cartItems={cartItems}
           removeFromCart={removeFromCart}
           updateQuantity={updateQuantity}
+          clearCart={clearCart}
         />
       </div>
     </div>
