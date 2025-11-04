@@ -1,28 +1,59 @@
-## Online Store - Dev Setup
+# Online Store
 
-### Backend
-1) Create `backend/.env`:
+## Overview
+This project is an online store application built using React for the frontend and Node.js with Express for the backend. It allows users to browse products, view details, and manage a shopping cart. Used MongoDB for the database (for practice and mastering the database)
+
+## Technologies Used
+- **Frontend:**
+  - React
+  - Vite
+  - Styled-components
+
+- **Backend:**
+  - Node.js
+  - Express
+  - Mongoose (for MongoDB)
+  - CORS
+  - dotenv
+
+## Project Structure
 ```
-MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>/<db>?retryWrites=true&w=majority
-PORT=3001
-```
-2) Install deps and run:
-```
-cd backend
-npm i
-npm run dev
+- onlinestore/
+  - frontend/ (React app)
+  - backend/ (Node.js app)
 ```
 
 ### Frontend
-1) Install deps and run:
-```
-cd ..
-npm i
-npm run dev
-```
-The Vite dev server proxies `/api` to `http://localhost:3001`.
+- The frontend is developed using React and Vite, which provides a fast development environment.
+- The main entry point is `src/main.jsx`.
+- Components are organized in the `src/components` directory.
 
-### API
-- GET `/api/products`
-- GET `/api/products/:id`
-- POST `/api/products` body: `{ name, header, image, price }`
+### Backend
+- The backend is built with Express and connects to a MongoDB database using Mongoose.
+- The main entry point is `backend/index.js`.
+- API routes are defined in the `backend/routes` directory.
+
+## How to Run the Project
+### Backend
+1. Install dependencies and run:
+   ```
+   cd backend
+   npm install
+   node index.js
+   ```
+
+### Frontend
+1. Install dependencies and run:
+   ```
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+## API Endpoints
+- **GET** `/api/products` - Retrieve all products
+- **GET** `/api/products/:id` - Retrieve a product by ID
+- **POST** `/api/products` - Create a new product (body: `{ name, header, image, price }`)
+
+## License
+This project is licensed under the MIT License.

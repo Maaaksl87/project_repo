@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import "./App.css";
 import ProductContainer from "./components/ProductContainer";
 import Cart from "./components/Cart";
+import UserContainer from "./components/UserContainer";
 
 const Title = styled.div`
   text-align: left;
@@ -62,6 +63,9 @@ function App() {
     <div className="app">
       <div>
         <Title>Desserts</Title>
+        {/* базова реалізація UserContainer, буде доповнюватись та покращуватись,
+        як і застосунок в цілому */}
+        <UserContainer />
         <ProductContainer
           addToCart={addToCart}
           cartItems={cartItems}
