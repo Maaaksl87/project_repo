@@ -1,7 +1,19 @@
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
-  return <h1 className="bg-blue-500">Hello</h1>;
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <Content>
+        <h1>Це головний контент</h1>
+      </Content>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
