@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Content from "./components/Content";
 import BookList from "./components/BookList";
 import Footer from "./components/Footer";
+import Profile from "./components/Profile";
 
 import "./App.css";
 
@@ -21,10 +22,17 @@ function App() {
     
   ];
 
+  const user = {
+    name: "Іван Іванов",
+    age: 30,
+    address: "вул. Центральна, 15, Київ, Україна",
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <Content>
+        <Profile user={user} />
         <BookList books={books} />
       </Content>
       <Footer />
