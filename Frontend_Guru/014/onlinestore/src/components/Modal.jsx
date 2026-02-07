@@ -20,6 +20,17 @@ const ModalContent = styled.div`
   max-width: 400px;
   width: 90%;
   text-align: center;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(7, 20%, 60%);
+    border-radius: 8px;
+  }
 `;
 
 const SuccessIcon = styled.div`
@@ -144,7 +155,7 @@ function Modal({ isOpen, onClose, cartItems, totalSum, clearCart }) {
               <div className="item-details">
                 <div>{item.name}</div>
                 <span className="quantity">
-                  {item.quantity}x  @ ${item.price.toFixed(2)}
+                  {item.quantity}x @ ${item.price.toFixed(2)}
                 </span>
               </div>
               <div className="price">

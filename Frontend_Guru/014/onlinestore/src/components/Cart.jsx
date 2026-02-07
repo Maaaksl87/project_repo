@@ -6,9 +6,20 @@ const CartContainer = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+  max-height: 610px;
+  overflow-y: auto;
 
   & .order-total span {
     font-size: 21px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(7, 20%, 60%);
+    border-radius: 8px;
   }
 `;
 
@@ -136,7 +147,7 @@ const ConfirmButton = styled.button`
   }
 `;
 
-function Cart({ cartItems, removeFromCart, updateQuantity, clearCart }) {
+function Cart({ cartItems, removeFromCart, clearCart }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { totalItems, totalSum } = useMemo(() => {
@@ -175,7 +186,7 @@ function Cart({ cartItems, removeFromCart, updateQuantity, clearCart }) {
                   <p className="total-price">
                     $
                     {Number((item.price || 0) * (item.quantity || 0)).toFixed(
-                      2
+                      2,
                     )}
                   </p>
                 </CartItemDiv>
