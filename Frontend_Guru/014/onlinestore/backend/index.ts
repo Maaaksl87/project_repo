@@ -22,7 +22,6 @@ app.use("/assets", express.static(path.join(__dirname, "../src/assets")));
 if (!process.env.MONGODB_URI) throw new Error("MONGODB_URI is missing");
 await connectToDatabase(process.env.MONGODB_URI);
 
-
 app.use("/api/products", productsRouter);
 
 app.use(notFoundHandler);
