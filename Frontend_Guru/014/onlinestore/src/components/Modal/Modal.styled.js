@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ModalOverlay = styled.div`
+export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ const ModalOverlay = styled.div`
   z-index: 1000;
 `;
 
-const ModalContent = styled.div`
+export const ModalContent = styled.div`
   background-color: white;
   padding: 32px;
   border-radius: 10px;
@@ -33,7 +33,7 @@ const ModalContent = styled.div`
   }
 `;
 
-const SuccessIcon = styled.div`
+export const SuccessIcon = styled.div`
   width: 48px;
   height: 48px;
   background-color: hsl(156, 100%, 95%);
@@ -49,7 +49,7 @@ const SuccessIcon = styled.div`
   }
 `;
 
-const ModalHeader = styled.div`
+export const ModalHeader = styled.div`
   text-align: center;
   margin-bottom: 24px;
 
@@ -66,9 +66,11 @@ const ModalHeader = styled.div`
   }
 `;
 
-const OrderSummary = styled.div`
+export const OrderSummary = styled.div`
   margin: 24px 0;
-  backgrpund-color: hsl(20, 50%, 98%);
+  background-color: hsl(20, 50%, 98%);
+  padding: 10px;
+  border-radius: 8px;
 
   .item {
     display: flex;
@@ -113,7 +115,7 @@ const OrderSummary = styled.div`
   }
 `;
 
-const StartNewOrderButton = styled.button`
+export const StartNewOrderButton = styled.button`
   width: 100%;
   padding: 16px;
   background-color: hsl(14, 86%, 42%);
@@ -128,53 +130,3 @@ const StartNewOrderButton = styled.button`
     background-color: hsl(14, 86%, 35%);
   }
 `;
-
-function Modal({ isOpen, onClose, cartItems, totalSum, clearCart }) {
-  if (!isOpen) return null;
-
-  const handleStartNewOrder = () => {
-    clearCart();
-    onClose();
-  };
-
-  return (
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        <SuccessIcon>
-          <img src="/src/assets/images/icon-check.svg" alt="Success" />
-        </SuccessIcon>
-        <ModalHeader>
-          <h2>Order Confirmed</h2>
-          <p>We hope you enjoy your food!</p>
-        </ModalHeader>
-
-        <OrderSummary>
-          {cartItems.map((item) => (
-            <div key={item._id} className="item">
-              <img src={item.image.thumbnail} alt={item.name} />
-              <div className="item-details">
-                <div>{item.name}</div>
-                <span className="quantity">
-                  {item.quantity}x @ ${item.price.toFixed(2)}
-                </span>
-              </div>
-              <div className="price">
-                ${(item.price * item.quantity).toFixed(2)}
-              </div>
-            </div>
-          ))}
-          <div className="total">
-            <span>Order Total</span>
-            <span>${totalSum.toFixed(2)}</span>
-          </div>
-        </OrderSummary>
-
-        <StartNewOrderButton onClick={handleStartNewOrder}>
-          Start New Order
-        </StartNewOrderButton>
-      </ModalContent>
-    </ModalOverlay>
-  );
-}
-
-export default Modal;

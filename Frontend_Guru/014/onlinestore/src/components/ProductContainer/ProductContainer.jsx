@@ -1,26 +1,12 @@
-import React, { useEffect, useState, useMemo } from "react";
-import ProductList from "./ProductList";
-import { styled } from "styled-components";
+import { useEffect, useState, useMemo } from "react";
+import ProductList from "../ProductList/ProductList";
+import * as S from "./ProductContainer.styled";
 
-const FilterWrapper = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-`;
-
-const Select = styled.select`
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-`;
-
-function ProductContainer({ addToCart, cartItems, updateQuantity }) {
+function ProductContainer() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("all");
   const [categories, setCategories] = useState([]);
-  const [sortOrder, setSortOrder] = useState("none"); //буде 3 стани
+  const [sortOrder, setSortOrder] = useState("none");
 
   useEffect(() => {
     fetch("/api/products")
@@ -28,7 +14,7 @@ function ProductContainer({ addToCart, cartItems, updateQuantity }) {
       .then((data) => {
         setProducts(data);
         const uniqueCategories = Array.from(
-          new Set(data.map((item) => item.category))
+          new Set(data.map((item) => item.category)),
         );
         setCategories(uniqueCategories);
       });
@@ -48,7 +34,7 @@ function ProductContainer({ addToCart, cartItems, updateQuantity }) {
       : products.filter((product) => product.category === category);
 
   const displayedProducts = useMemo(() => {
-    const result = filteredProducts.slice(); // копія
+    const result = filteredProducts.slice();
     if (sortOrder === "asc") {
       result.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
     } else if (sortOrder === "desc") {
@@ -59,29 +45,24 @@ function ProductContainer({ addToCart, cartItems, updateQuantity }) {
 
   return (
     <div>
-      <FilterWrapper>
-        <Select value={category} onChange={handleCategoryChange}>
+      <S.FilterWrapper>
+        <S.Select value={category} onChange={handleCategoryChange}>
           <option value="all">All categories</option>
           {categories.map((cat) => (
             <option value={cat} key={cat}>
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
             </option>
           ))}
-        </Select>
+        </S.Select>
 
-        <Select value={sortOrder} onChange={handleSortChange}>
+        <S.Select value={sortOrder} onChange={handleSortChange}>
           <option value="none">Sort: default</option>
           <option value="asc">Price: Low → High</option>
           <option value="desc">Price: High → Low</option>
-        </Select>
-      </FilterWrapper>
+        </S.Select>
+      </S.FilterWrapper>
 
-      <ProductList
-        products={displayedProducts}
-        addToCart={addToCart}
-        cartItems={cartItems}
-        updateQuantity={updateQuantity}
-      />
+      <ProductList products={displayedProducts} />
     </div>
   );
 }
