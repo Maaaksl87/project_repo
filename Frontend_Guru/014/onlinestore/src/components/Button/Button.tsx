@@ -1,8 +1,16 @@
+import { ReactNode } from "react";
 import CartIcon from "../../assets/images/icon-add-to-cart.svg?react";
-import { useCartActions } from "../../store/shopping-cart-context";
+import { useCartActions, Product } from "../../store/shopping-cart-context";
 import * as S from "./Button.styled";
 
-function Button({ children, product, isInCart, quantity }) {
+interface ButtonProps {
+  children: ReactNode;
+  product: Product;
+  isInCart: boolean;
+  quantity: number;
+}
+
+function Button({ children, product, isInCart, quantity }: ButtonProps) {
   const { addToCart, updateQuantity } = useCartActions();
 
   if (isInCart && quantity > 0) {

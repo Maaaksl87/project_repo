@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import Modal from "../Modal/Modal";
-import { useCartState, useCartActions } from "../../store/shopping-cart-context";
+import { useCartState, useCartActions, CartItem } from "../../store/shopping-cart-context";
 import * as S from "./Cart.styled";
 
 function Cart() {
@@ -32,7 +32,7 @@ function Cart() {
         </S.EmptyDiv>
       ) : (
         <div>
-          {items.map((item) => (
+          {items.map((item: CartItem) => (
             <S.CartItem key={item._id}>
               <S.WrapperDiv>
                 <h4 className="name">{item.name}</h4>

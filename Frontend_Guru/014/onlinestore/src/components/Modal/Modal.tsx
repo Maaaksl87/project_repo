@@ -1,7 +1,13 @@
-import { useCartState, useCartActions } from "../../store/shopping-cart-context";
+import { useCartState, useCartActions, CartItem } from "../../store/shopping-cart-context";
 import * as S from "./Modal.styled";
 
-function Modal({ isOpen, onClose, totalSum }) {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  totalSum: number;
+}
+
+function Modal({ isOpen, onClose, totalSum }: ModalProps) {
   const { items } = useCartState();
   const { clearCart } = useCartActions();
 
@@ -24,7 +30,7 @@ function Modal({ isOpen, onClose, totalSum }) {
         </S.ModalHeader>
 
         <S.OrderSummary>
-          {items.map((item) => (
+          {items.map((item: CartItem) => (
             <div key={item._id} className="item">
               <img src={item.image.thumbnail} alt={item.name} />
               <div className="item-details">

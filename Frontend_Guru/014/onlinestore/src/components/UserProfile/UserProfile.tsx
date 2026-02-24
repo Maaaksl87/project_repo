@@ -1,7 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, KeyboardEvent, ChangeEvent } from "react";
 import * as S from "./UserProfile.styled";
 
-function UserProfile({ name, email, avatarUrl, isEditing, onNameChange }) {
+interface UserProfileProps {
+  name: string;
+  email: string;
+  avatarUrl: string;
+  isEditing: boolean;
+  onNameChange: (newName: string) => void;
+}
+
+function UserProfile({ name, email, avatarUrl, isEditing, onNameChange }: UserProfileProps) {
   const fallback =
     "data:image/svg+xml;utf8," +
     encodeURIComponent(
@@ -16,13 +24,17 @@ function UserProfile({ name, email, avatarUrl, isEditing, onNameChange }) {
     }
   }, [isEditing, name]);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       onNameChange(editValue);
     } else if (e.key === "Escape") {
       setEditValue(name);
       onNameChange(name);
     }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEditValue(e.target.value);
   };
 
   return (
@@ -32,7 +44,7 @@ function UserProfile({ name, email, avatarUrl, isEditing, onNameChange }) {
         {isEditing ? (
           <S.NameInput
             value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
+            onChange={handleChange}
             onKeyDown={handleKeyDown}
             onBlur={() => onNameChange(editValue)}
             autoFocus

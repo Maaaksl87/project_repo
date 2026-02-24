@@ -1,8 +1,14 @@
 import Button from "../Button/Button";
-import { useCartState } from "../../store/shopping-cart-context";
+import { useCartState, Product } from "../../store/shopping-cart-context";
 import * as S from "./ImgWrapper.styled";
 
-function ImgWrapper({ image, category, product }) {
+interface ImgWrapperProps {
+  image: string;
+  category: string;
+  product: Product;
+}
+
+function ImgWrapper({ image, category, product }: ImgWrapperProps) {
   const { items } = useCartState();
 
   const cartItem = items.find((item) => item._id === product._id);

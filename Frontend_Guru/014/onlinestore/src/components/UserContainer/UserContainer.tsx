@@ -2,15 +2,21 @@ import { useState } from "react";
 import UserProfile from "../UserProfile/UserProfile";
 import * as S from "./UserContainer.styled";
 
+interface User {
+  name: string;
+  email: string;
+  avatarUrl: string;
+}
+
 function UserContainer() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<User>({
     name: "John Doe",
     email: "john.doe@example.com",
     avatarUrl: "",
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleNameChange = (newName) => {
+  const handleNameChange = (newName: string) => {
     if (newName.trim()) {
       setUser((prev) => ({
         ...prev,

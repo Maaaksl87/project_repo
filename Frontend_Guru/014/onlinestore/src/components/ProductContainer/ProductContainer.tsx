@@ -1,17 +1,18 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, ChangeEvent } from "react";
 import ProductList from "../ProductList/ProductList";
 import * as S from "./ProductContainer.styled";
+import { Product } from "../../store/shopping-cart-context";
 
 function ProductContainer() {
-  const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState("all");
-  const [categories, setCategories] = useState([]);
-  const [sortOrder, setSortOrder] = useState("none");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [category, setCategory] = useState<string>("all");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [sortOrder, setSortOrder] = useState<string>("none");
 
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: Product[]) => {
         setProducts(data);
         const uniqueCategories = Array.from(
           new Set(data.map((item) => item.category)),
@@ -20,11 +21,11 @@ function ProductContainer() {
       });
   }, []);
 
-  const handleCategoryChange = (e) => {
+  const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setCategory(e.target.value);
   };
 
-  const handleSortChange = (e) => {
+  const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortOrder(e.target.value);
   };
 
