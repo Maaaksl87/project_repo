@@ -1,8 +1,13 @@
 import ImgWrapper from "../ImgWrapper/ImgWrapper";
 import CardDescription from "../CardDescription/CardDescription";
 import * as S from "./ProductCard.styled";
+import { Product } from "../../store/shopping-cart-context";
 
-function ProductCard({ product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+function ProductCard({ product }: ProductCardProps) {
   const { image, category, name, price } = product;
 
   return (

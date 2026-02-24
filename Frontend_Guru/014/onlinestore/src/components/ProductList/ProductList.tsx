@@ -1,7 +1,12 @@
 import ProductCard from "../ProductCard/ProductCard";
 import * as S from "./ProductList.styled";
+import { Product } from "../../store/shopping-cart-context";
 
-function ProductList({ products }) {
+interface ProductListProps {
+  products: Product[];
+}
+
+function ProductList({ products }: ProductListProps) {
   return (
     <S.ProductListGrid className="product-list">
       {products.map((product) => (

@@ -1,6 +1,12 @@
 import * as S from "./CardDescription.styled";
 
-function CardDescription({ category, name, price }) {
+interface CardDescriptionProps {
+  category: string;
+  name: string;
+  price: string;
+}
+
+function CardDescription({ category, name, price }: CardDescriptionProps) {
   return (
     <S.StyledCardDescription>
       <span className="product-card__category">{category}</span>

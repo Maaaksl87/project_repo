@@ -5,15 +5,50 @@ import {
   useCallback,
   useMemo,
   useEffect,
+  ReactNode,
 } from "react";
 
-export const CartStateContext = createContext();
-export const CartActionsContext = createContext();
+export interface Product {
+  _id: string;
+  name: string;
+  category: string;
+  price: number;
+  image: {
+    thumbnail: string;
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+}
+
+export interface CartItem extends Product {
+  quantity: number;
+}
+
+export interface CartState {
+  items: CartItem[];
+}
+
+export interface CartActions {
+  addToCart: (product: Product) => void;
+  removeFromCart: (product: { _id: string }) => void;
+  updateQuantity: (productId: string, newQuantity: number) => void;
+  clearCart: () => void;
+}
+
+export const CartStateContext = createContext<CartState | undefined>(undefined);
+export const CartActionsContext = createContext<CartActions | undefined>(
+  undefined,
+);
 
 const CART_STORAGE_KEY = "shopping_cart_items";
 
-export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState(() => {
+interface CartProviderProps {
+  children: ReactNode;
+}
+
+export function CartProvider({ children }: CartProviderProps) {
+  const [cartItems, setCartItems] = useState<CartState>(() => {
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
       return savedCart ? JSON.parse(savedCart) : { items: [] };
@@ -28,7 +63,7 @@ export function CartProvider({ children }) {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = useCallback((product) => {
+  const addToCart = useCallback((product: Product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.items.find(
         (item) => item._id === product._id,
@@ -51,7 +86,7 @@ export function CartProvider({ children }) {
     });
   }, []);
 
-  const removeFromCart = useCallback((product) => {
+  const removeFromCart = useCallback((product: { _id: string }) => {
     setCartItems((prevItems) => {
       return {
         ...prevItems,
@@ -60,7 +95,7 @@ export function CartProvider({ children }) {
     });
   }, []);
 
-  const updateQuantity = useCallback((productId, newQuantity) => {
+  const updateQuantity = useCallback((productId: string, newQuantity: number) => {
     setCartItems((prevItems) => {
       if (newQuantity <= 0) {
         return {
